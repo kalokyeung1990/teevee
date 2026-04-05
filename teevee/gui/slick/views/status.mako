@@ -3,9 +3,9 @@
     import timeago
     from datetime import datetime
 
-    from sickchill import settings
-    from sickchill.oldbeard import helpers
-    from sickchill.oldbeard.show_queue import ShowQueueActions
+    from teevee import settings
+    from teevee.oldbeard import helpers
+    from teevee.oldbeard.show_queue import ShowQueueActions
 %>
 <%block name="content">
     <%

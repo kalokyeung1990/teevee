@@ -1,7 +1,7 @@
 <%!
-    from sickchill import settings
-    from sickchill.oldbeard.helpers import anon_url
-    import sickchill
+    from teevee import settings
+    from teevee.oldbeard.helpers import anon_url
+    import teevee
 %>
 
 <table id="addRootDirTable" class="sickchillTable tablesorter">

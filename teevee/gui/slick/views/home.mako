@@ -1,6 +1,6 @@
 <%inherit file="/layouts/main.mako" />
 <%!
-    from sickchill import settings
+    from teevee import settings
 %>
 <%block name="metas">
     <meta data-var="max_download_count" data-content="${max_download_count}" />

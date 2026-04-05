@@ -1,10 +1,10 @@
 <%inherit file="/layouts/config.mako" />
 <%!
-    from sickchill.oldbeard import providers
-    from sickchill import settings
-    from sickchill.oldbeard.filters import hide
-    from sickchill.oldbeard.helpers import anon_url
-    from sickchill.providers.GenericProvider import GenericProvider
+    from teevee.oldbeard import providers
+    from teevee import settings
+    from teevee.oldbeard.filters import hide
+    from teevee.oldbeard.helpers import anon_url
+    from teevee.providers.GenericProvider import GenericProvider
 %>
 
 <%block name="scripts">

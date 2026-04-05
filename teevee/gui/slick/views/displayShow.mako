@@ -2,13 +2,13 @@
 <%!
     import datetime
     from urllib.parse import quote, urljoin
-    from sickchill import settings
-    from sickchill.oldbeard import subtitles, notifiers, scdatetime, network_timezones, helpers
+    from teevee import settings
+    from teevee.oldbeard import subtitles, notifiers, scdatetime, network_timezones, helpers
 
-    from sickchill.oldbeard.common import SKIPPED, WANTED, UNAIRED, ARCHIVED, IGNORED, FAILED, DOWNLOADED
-    from sickchill.oldbeard.common import Quality, qualityPresets, statusStrings, Overview
-    from sickchill.oldbeard.helpers import anon_url
-    from sickchill.helper.common import pretty_file_size, try_int
+    from teevee.oldbeard.common import SKIPPED, WANTED, UNAIRED, ARCHIVED, IGNORED, FAILED, DOWNLOADED
+    from teevee.oldbeard.common import Quality, qualityPresets, statusStrings, Overview
+    from teevee.oldbeard.helpers import anon_url
+    from teevee.helper.common import pretty_file_size, try_int
 %>
 <%block name="metas">
     <meta data-var="showBackgroundImage" data-content="${static_url(show.show_image_url('fanart'))}">

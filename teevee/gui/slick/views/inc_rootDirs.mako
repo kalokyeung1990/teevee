@@ -1,5 +1,5 @@
 <%
-    from sickchill import settings
+    from teevee import settings
 
     if settings.ROOT_DIRS:
         backend_pieces = settings.ROOT_DIRS.split('|')

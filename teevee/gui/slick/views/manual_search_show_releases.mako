@@ -1,8 +1,8 @@
 <%inherit file="/layouts/main.mako" />
 <%!
-    from sickchill.helper.common import dateTimeFormat, pretty_file_size
-    from sickchill.oldbeard.common import Quality
-    from sickchill.oldbeard.providers import getProviderClass
+    from teevee.helper.common import dateTimeFormat, pretty_file_size
+    from teevee.oldbeard.common import Quality
+    from teevee.oldbeard.providers import getProviderClass
 %>
 <%block name="content">
     <%namespace file="/inc_defs.mako" import="renderQualityPill" />

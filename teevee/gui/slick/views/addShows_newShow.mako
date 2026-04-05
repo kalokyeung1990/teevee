@@ -1,8 +1,8 @@
 <%inherit file="/layouts/config.mako" />
 <%!
-    from sickchill import settings
-    from sickchill.oldbeard.helpers import anon_url
-    from sickchill import indexer as show_indexer
+    from teevee import settings
+    from teevee.oldbeard.helpers import anon_url
+    from teevee import indexer as show_indexer
 %>
 <%block name="scripts">
     <script type="text/javascript" src="${static_url('js/plotTooltip.js')}"></script>

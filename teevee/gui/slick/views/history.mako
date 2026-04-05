@@ -3,14 +3,14 @@
     import os.path
     import datetime
 
-    from sickchill.oldbeard import scdatetime, providers
+    from teevee.oldbeard import scdatetime, providers
 
-    from sickchill.oldbeard.common import ARCHIVED, SNATCHED, FAILED, DOWNLOADED, SUBTITLED
-    from sickchill.oldbeard.common import Quality, statusStrings
+    from teevee.oldbeard.common import ARCHIVED, SNATCHED, FAILED, DOWNLOADED, SUBTITLED
+    from teevee.oldbeard.common import Quality, statusStrings
 
-    from sickchill.show.History import History
-    from sickchill.providers.GenericProvider import GenericProvider
-    from sickchill import settings
+    from teevee.show.History import History
+    from teevee.providers.GenericProvider import GenericProvider
+    from teevee import settings
 
     from operator import itemgetter
 %>

@@ -3,8 +3,8 @@
     import timeago
     from datetime import datetime
 
-    from sickchill.oldbeard.helpers import anon_url
-    from sickchill import settings
+    from teevee.oldbeard.helpers import anon_url
+    from teevee import settings
 %>
 <%block name="metas">
     <meta data-var="settings.SORT_ARTICLE" data-content="${settings.SORT_ARTICLE}">

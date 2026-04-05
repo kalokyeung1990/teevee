@@ -1,6 +1,6 @@
 <%inherit file="/layouts/main.mako" />
 <%!
-    from sickchill import settings
+    from teevee import settings
 %>
 <%block name="content">
     <div id="tabs">

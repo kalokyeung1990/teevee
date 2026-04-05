@@ -1,7 +1,7 @@
 <%inherit file="/layouts/main.mako" />
 <%!
-    from sickchill import settings
-    from sickchill.oldbeard.common import statusStrings
+    from teevee import settings
+    from teevee.oldbeard.common import statusStrings
 %>
 
 <%block name="content">

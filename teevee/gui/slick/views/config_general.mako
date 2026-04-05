@@ -3,13 +3,13 @@
     import os
     import datetime
 
-    from sickchill import settings
-    from sickchill.oldbeard.common import SKIPPED, ARCHIVED, IGNORED, statusStrings, cpu_presets
-    from sickchill.oldbeard.filters import hide
-    from sickchill.oldbeard.scdatetime import scdatetime, date_presets, time_presets
-    from sickchill.oldbeard.helpers import anon_url, LOCALE_NAMES
-    import sickchill
-    import sickchill.init_helpers
+    from teevee import settings
+    from teevee.oldbeard.common import SKIPPED, ARCHIVED, IGNORED, statusStrings, cpu_presets
+    from teevee.oldbeard.filters import hide
+    from teevee.oldbeard.scdatetime import scdatetime, date_presets, time_presets
+    from teevee.oldbeard.helpers import anon_url, LOCALE_NAMES
+    import teevee
+    import teevee.init_helpers
 
     def lang_name(code):
         return LOCALE_NAMES.get(code, {}).get("name", "Unknown")

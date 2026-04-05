@@ -1,6 +1,6 @@
 <%!
-    from sickchill import settings
-    from sickchill.oldbeard.common import Quality, qualityPresets, qualityPresetStrings
+    from teevee import settings
+    from teevee.oldbeard.common import Quality, qualityPresets, qualityPresetStrings
 %>
 
 <%

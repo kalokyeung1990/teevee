@@ -2,10 +2,10 @@
 <%!
     import os
     import datetime
-    from sickchill.oldbeard.common import SKIPPED, ARCHIVED, IGNORED, statusStrings, cpu_presets
-    from sickchill.oldbeard.scdatetime import scdatetime, date_presets, time_presets
-    from sickchill.oldbeard.helpers import anon_url
-    from sickchill import settings
+    from teevee.oldbeard.common import SKIPPED, ARCHIVED, IGNORED, statusStrings, cpu_presets
+    from teevee.oldbeard.scdatetime import scdatetime, date_presets, time_presets
+    from teevee.oldbeard.helpers import anon_url
+    from teevee import settings
 %>
 
 <%block name="content">

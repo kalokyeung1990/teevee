@@ -1,8 +1,8 @@
 <%inherit file="/layouts/main.mako" />
 <%!
     import datetime
-    from sickchill import settings
-    from sickchill.oldbeard import subtitles
+    from teevee import settings
+    from teevee.oldbeard import subtitles
 %>
 <%block name="content">
     <div id="content960">

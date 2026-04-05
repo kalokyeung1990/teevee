@@ -1,8 +1,8 @@
 <%inherit file="/layouts/main.mako" />
 <%!
-    from sickchill import settings
-    from sickchill.oldbeard import db
-    from sickchill.oldbeard.helpers import anon_url
+    from teevee import settings
+    from teevee.oldbeard import db
+    from teevee.oldbeard.helpers import anon_url
     import sys
     import platform
 %>

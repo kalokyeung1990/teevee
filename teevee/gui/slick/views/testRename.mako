@@ -1,7 +1,7 @@
 <%inherit file="/layouts/main.mako" />
 <%!
-    from sickchill import settings
-    from sickchill.helper.common import try_int
+    from teevee import settings
+    from teevee.helper.common import try_int
 %>
 <%block name="scripts">
     <script type="text/javascript" src="${static_url('js/testRename.js')}" xmlns="http://www.w3.org/1999/html"></script>

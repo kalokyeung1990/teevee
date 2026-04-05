@@ -1,6 +1,6 @@
 <%inherit file="/layouts/config.mako" />
 <%!
-     from sickchill import settings
+     from teevee import settings
 %>
 <%block name="pages">
     <form id="shares_form" action="save_shares" method="post">

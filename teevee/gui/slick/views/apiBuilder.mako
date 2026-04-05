@@ -3,7 +3,7 @@
     import json
     from urllib.parse import urljoin
 
-    from sickchill import settings
+    from teevee import settings
 %>
 <%block name="css">
     <style type="text/css">

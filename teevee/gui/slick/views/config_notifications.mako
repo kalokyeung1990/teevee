@@ -1,10 +1,10 @@
 <%inherit file="/layouts/config.mako" />
 <%!
     import re
-    from sickchill import settings
-    from sickchill.oldbeard.filters import hide
-    from sickchill.oldbeard.helpers import anon_url
-    import sickchill
+    from teevee import settings
+    from teevee.oldbeard.filters import hide
+    from teevee.oldbeard.helpers import anon_url
+    import teevee
 %>
 
 <%block name="tabs">
@@ -2824,7 +2824,7 @@
                                     </div>
                                     <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12 component-desc">
                                         <input type="checkbox" name="trakt_remove_show_from_sickchill" id="trakt_remove_show_from_sickchill" ${checked(settings.TRAKT_REMOVE_SHOW_FROM_SICKCHILL)}/>
-                                        <label for="trakt_remove_show_from_sickchill">${_('remove the show from sickchill if it\'s ended and completely watched')}</label>
+                                        <label for="trakt_remove_show_from_sickchill">${_('remove the show from teevee if it\'s ended and completely watched')}</label>
                                     </div>
                                 </div>
 

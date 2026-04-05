@@ -4,10 +4,10 @@
     import time
     import re
 
-    from sickchill.oldbeard.helpers import anon_url
-    from sickchill.oldbeard import scdatetime
-    from sickchill.oldbeard.common import Quality
-    from sickchill import indexer as show_indexer, settings
+    from teevee.oldbeard.helpers import anon_url
+    from teevee.oldbeard import scdatetime
+    from teevee.oldbeard.common import Quality
+    from teevee import indexer as show_indexer, settings
 
     SNATCHED = Quality.SNATCHED + Quality.SNATCHED_PROPER + Quality.SNATCHED_BEST  # type = list
 %>

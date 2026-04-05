@@ -2,13 +2,13 @@
     import re
     import datetime
     from urllib.parse import urljoin
-    from sickchill.oldbeard.filters import hide
-    from sickchill.oldbeard.helpers import anon_url
-    from sickchill.helper.common import pretty_file_size
+    from teevee.oldbeard.filters import hide
+    from teevee.oldbeard.helpers import anon_url
+    from teevee.helper.common import pretty_file_size
 
-    from sickchill.init_helpers import get_current_version
-    from sickchill.show.Show import Show
-    from sickchill import settings, logger
+    from teevee.init_helpers import get_current_version
+    from teevee.show.Show import Show
+    from teevee import settings, logger
     from time import time
 
     # resource module is unix only

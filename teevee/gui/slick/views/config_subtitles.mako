@@ -1,9 +1,9 @@
 <%inherit file="/layouts/config.mako" />
 <%!
-    from sickchill.oldbeard import subtitles
-    from sickchill.oldbeard.filters import hide
-    from sickchill.oldbeard.helpers import anon_url
-    from sickchill import settings
+    from teevee.oldbeard import subtitles
+    from teevee.oldbeard.filters import hide
+    from teevee.oldbeard.helpers import anon_url
+    from teevee import settings
 %>
 
 <%block name="scripts">

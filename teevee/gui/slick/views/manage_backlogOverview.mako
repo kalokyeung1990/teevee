@@ -1,10 +1,10 @@
 <%inherit file="/layouts/main.mako" />
 <%!
     import datetime
-    from sickchill import settings
-    from sickchill.oldbeard import scdatetime, network_timezones
-    from sickchill.oldbeard.common import WANTED, SNATCHED, SNATCHED_PROPER, SNATCHED_BEST, Overview, Quality
-    from sickchill.helper.common import episode_num
+    from teevee import settings
+    from teevee.oldbeard import scdatetime, network_timezones
+    from teevee.oldbeard.common import WANTED, SNATCHED, SNATCHED_PROPER, SNATCHED_BEST, Overview, Quality
+    from teevee.helper.common import episode_num
 %>
 <%block name="content">
     <div class="row">

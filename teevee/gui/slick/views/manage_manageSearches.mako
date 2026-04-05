@@ -1,6 +1,6 @@
 <%inherit file="/layouts/main.mako" />
 <%!
-    from sickchill import settings
+    from teevee import settings
 %>
 <%block name="scripts">
 <script type="text/javascript" src="${static_url('js/plotTooltip.js')}"></script>

@@ -1,8 +1,8 @@
 <%!
-    from sickchill import settings
+    from teevee import settings
     import calendar
-    from sickchill.oldbeard import scdatetime, network_timezones
-    from sickchill.helper.common import pretty_file_size
+    from teevee.oldbeard import scdatetime, network_timezones
+    from teevee.helper.common import pretty_file_size
     import os
     import re
 

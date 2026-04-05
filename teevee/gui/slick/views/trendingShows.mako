@@ -1,7 +1,7 @@
 <%inherit file="/layouts/main.mako" />
 <%!
-    from sickchill import settings
-    from sickchill.oldbeard.helpers import anon_url
+    from teevee import settings
+    from teevee.oldbeard.helpers import anon_url
 %>
 <%block name="metas">
     <meta data-var="settings.SORT_ARTICLE" data-content="${settings.SORT_ARTICLE}">

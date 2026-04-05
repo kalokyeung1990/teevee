@@ -1,7 +1,7 @@
 <%inherit file="/layouts/main.mako" />
 <%!
-    from sickchill.oldbeard import classes
-    import sickchill
+    from teevee.oldbeard import classes
+    import teevee
 %>
 <%block name="content">
     <%

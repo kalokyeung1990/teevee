@@ -1,7 +1,7 @@
 <%
-    from sickchill import settings
-    from sickchill.oldbeard.common import SKIPPED, WANTED, IGNORED
-    from sickchill.oldbeard.common import Quality, statusStrings
+    from teevee import settings
+    from teevee.oldbeard.common import SKIPPED, WANTED, IGNORED
+    from teevee.oldbeard.common import Quality, statusStrings
 %>
 <div class="field-pair row">
     <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
@@ -98,7 +98,7 @@
 <br>
 
 % if enable_anime_options:
-    <% import sickchill.oldbeard.blackandwhitelist %>
+    <% import teevee.oldbeard.blackandwhitelist %>
     <%include file="/inc_blackwhitelist.mako" />
 % else:
     <input type="hidden" name="anime" id="anime" value="0" />

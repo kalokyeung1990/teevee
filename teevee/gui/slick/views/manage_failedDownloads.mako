@@ -1,7 +1,7 @@
 <%inherit file="/layouts/main.mako" />
 <%!
-    from sickchill.oldbeard import providers
-    from sickchill.providers.GenericProvider import GenericProvider
+    from teevee.oldbeard import providers
+    from teevee.providers.GenericProvider import GenericProvider
 %>
 <%block name="content">
     <div class="row">

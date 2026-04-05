@@ -1,10 +1,10 @@
 <%inherit file="../layouts/main.mako" />
 <%!
-    from sickchill import settings
-    from sickchill.oldbeard import subtitles
-    from sickchill.oldbeard.common import Quality, qualityPresets, statusStrings, Overview
-    from sickchill.oldbeard.helpers import anon_url
-    from sickchill.helper.common import pretty_file_size
+    from teevee import settings
+    from teevee.oldbeard import subtitles
+    from teevee.oldbeard.common import Quality, qualityPresets, statusStrings, Overview
+    from teevee.oldbeard.helpers import anon_url
+    from teevee.helper.common import pretty_file_size
 %>
 
 <%block name="css">
