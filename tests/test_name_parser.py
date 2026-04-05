@@ -3,9 +3,9 @@ import os
 import sys
 import unittest
 
-from sickchill import settings, tv
-from sickchill.oldbeard import common, scheduler, show_queue
-from sickchill.oldbeard.name_parser import parser
+from teevee import settings, tv
+from teevee.oldbeard import common, scheduler, show_queue
+from teevee.oldbeard.name_parser import parser
 from tests import conftest
 
 DEBUG = os.getenv("DEBUG")

@@ -63,8 +63,8 @@ import unittest
 from pathlib import Path
 from shutil import rmtree
 
-from sickchill import settings
-from sickchill.oldbeard import helpers
+from teevee import settings
+from teevee.oldbeard import helpers
 
 TEST_RESULT = "Show.Name.S01E01.HDTV.x264-SICKCHILL"
 TEST_CASES = {

@@ -2,13 +2,13 @@
 
 # docker run -dit --user 1000:1000 --name sickchill --restart=always \
 # -v mount_point:/mount_point \
-# -v /docker/sickchill/data:/data \
+# -v /docker/teevee/data:/data \
 # -v /etc/localtime:/etc/localtime:ro
-# -p 8080:8081 sickchill/sickchill
+# -p 8080:3333 sickchill/teevee
 
 FROM --platform=$TARGETPLATFORM python:3.10-slim-bullseye as base
 
-LABEL org.opencontainers.image.source="https://github.com/sickchill/sickchill"
+LABEL org.opencontainers.image.source="https://github.com/teevee/teevee"
 LABEL maintainer="miigotu@gmail.com"
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -37,7 +37,7 @@ ENV PIP_EXTRA_INDEX_URL=$PIP_EXTRA_INDEX_URL
 
 # TODO: Add a user and drop privileges, preferablty from --user argument
 
-RUN mkdir -m 777 -p /sickchill "$POETRY_CACHE_DIR"
+RUN mkdir -m 777 -p /teevee "$POETRY_CACHE_DIR"
 
 RUN sed -i -e "s/ main/ main contrib non-free/gm" /etc/apt/sources.list
 RUN apt-get update -qq && apt-get upgrade -yqq && \
@@ -77,32 +77,32 @@ ENV PATH "$RUSTUP_HOME/bin:$CARGO_HOME/bin:$PATH"
 RUN python3 -m venv "$POETRY_VIRTUALENVS_PATH" --upgrade --upgrade-deps # upgrade-deps requires python3.9+
 RUN pip install -U wheel setuptools-rust
 
-WORKDIR /sickchill
-COPY . /sickchill/
+WORKDIR /teevee
+COPY . /teevee/
 
 # https://github.com/rust-lang/cargo/issues/8719#issuecomment-1253575253
 # hadolint ignore=SC2215,SC1089
 RUN --mount=type=tmpfs,target="$CARGO_HOME" if [ -z "$SOURCE" ]; then \
-  pip install --upgrade "sickchill[speedups]"; \
+  pip install --upgrade "teevee[speedups]"; \
 else \
   pip install --upgrade poetry && poetry run pip install -U setuptools-rust pycparser && \
-  poetry build --no-interaction --no-ansi && pip install --upgrade --find-links=./dist "sickchill[speedups]"; \
+  poetry build --no-interaction --no-ansi && pip install --upgrade --find-links=./dist "teevee[speedups]"; \
 fi
 
-RUN mkdir -m 777 /sickchill-wheels && \
- pip download sickchill --dest /sickchill-wheels && \
- rm -rf /sickchill-wheels/*none-any.whl && \
- rm -rf /sickchill-wheels/*.gz;
+RUN mkdir -m 777 /teevee-wheels && \
+ pip download teevee --dest /teevee-wheels && \
+ rm -rf /teevee-wheels/*none-any.whl && \
+ rm -rf /teevee-wheels/*.gz;
 
 RUN if [ -z "$SOURCE" ]; then \
-  rm -rf /sickchill-wheels/sickchill*.whl && \
-  cp dist/sickchill*.whl /sickchill-wheels/; \
+  rm -rf /teevee-wheels/teevee*.whl && \
+  cp dist/teevee*.whl /teevee-wheels/; \
 fi
 
-FROM scratch AS sickchill-wheels
-COPY --from=builder /sickchill-wheels /
+FROM scratch AS teevee-wheels
+COPY --from=builder /teevee-wheels /
 
-FROM base as sickchill-final
+FROM base as teevee-final
 
 COPY --from=builder "$POETRY_VIRTUALENVS_PATH" "$POETRY_VIRTUALENVS_PATH"
 
@@ -112,8 +112,8 @@ WORKDIR /data
 
 VOLUME /data /downloads /tv
 
-CMD ["sickchill", "--nolaunch", "--datadir", "/data", "--port", "8081"]
-EXPOSE 8081
+CMD ["teevee", "--nolaunch", "--datadir", "/data", "--port", "3333"]
+EXPOSE 3333
 
 HEALTHCHECK --interval=5m --timeout=3s \
- CMD bash -c 'if [ $(curl -f http://localhost:8081/ui/get_messages -s) == "{}" ]; then echo "sickchill is alive"; elif [ $(curl -f https://localhost:8081/ui/get_messages -s) == "{}" ]; then echo "sickchill is alive"; else echo 1; fi'
+ CMD bash -c 'if [ $(curl -f http://localhost:3333/ui/get_messages -s) == "{}" ]; then echo "teevee is alive"; elif [ $(curl -f https://localhost:3333/ui/get_messages -s) == "{}" ]; then echo "teevee is alive"; else echo 1; fi'

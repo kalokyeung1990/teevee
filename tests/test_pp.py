@@ -6,11 +6,11 @@ import os.path
 import shutil
 import unittest
 
-from sickchill import settings
-from sickchill.oldbeard.helpers import make_dirs
-from sickchill.oldbeard.name_cache import add_name
-from sickchill.oldbeard.postProcessor import PostProcessor
-from sickchill.tv import TVEpisode, TVShow
+from teevee import settings
+from teevee.oldbeard.helpers import make_dirs
+from teevee.oldbeard.name_cache import add_name
+from teevee.oldbeard.postProcessor import PostProcessor
+from teevee.tv import TVEpisode, TVShow
 from tests import conftest
 
 

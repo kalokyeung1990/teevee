@@ -1,16 +1,15 @@
 [tool.poetry]
-name = "sickchill"
+name = "teevee"
 version = "2024.3.1"
 description = 'Automatic Video Library Manager for TV Shows'
 license = "GPL-3.0-or-later"
 
 authors = [
-    "Dustyn Gibson <miigotu@gmail.com>",
-    "BKSteve <stephen.rieger@gmail.com>"
+    "Kalok Yeung <kalokyeung1990@gmail.com>"
 ]
 
 maintainers = [
-    "Dustyn Gibson <miigotu@gmail.com>"
+    "Kalok Yeung <kalokyeung1990@gmail.com>"
 ]
 
 readme = "README.md"
@@ -32,8 +31,8 @@ classifiers = [
 ]
 
 packages = [
-    { include = "sickchill" },
-    { include = "SickChill.py" },
+    { include = "teevee" },
+    { include = "TeeVee.py" },
     { include = "frontend" }
 ]
 
@@ -45,8 +44,8 @@ packages = [
 "Donate"= "https://github.com/SickChill/SickChill/wiki/Donations"
 
 [tool.poetry.scripts]
-SickChill = "SickChill:main"
-sickchill = "SickChill:main"
+TeeVee = "TeeVee:main"
+teevee = "TeeVee:main"
 
 [tool.poetry.group.dev]
 optional = true
@@ -156,8 +155,8 @@ builtins = ["_"]
 #select = 'C103'
 
 [tool.pytest.ini_options]
-testpaths = ["tests", "sickchill", "SickChill.py"]
-addopts = "--cov=sickchill --cov-report xml --no-cov-on-fail"
+testpaths = ["tests", "teevee", "TeeVee.py"]
+addopts = "--cov=teevee --cov-report xml --no-cov-on-fail"
 
 [tool.isort]
 profile = "black"
@@ -166,10 +165,10 @@ line_length = 160
 combine_as_imports = true
 order_by_type = false
 remove_imports = [ "from __future__ import absolute_import", "from __future__ import print_function", "from __future__ import unicode_literals" ]
-known_first_party = "sickchill"
+known_first_party = "teevee"
 extra_standard_library = [ "posixpath", "ntpath" ]
 use_parentheses = true
-src_paths = [ "sickchill", "tests", "SickChill.py", "setup.py" ]
+src_paths = [ "teevee", "tests", "TeeVee.py", "setup.py" ]
 
 [tool.black]
 line-length = 160
@@ -185,12 +184,12 @@ ava = "ava"
 
 _black = {cmd = "black . --check --diff", help = "Check code style using black"}
 _isort = {cmd = "isort . --check-only --diff", help = "Check import order"}
-flake8 = {cmd = "flake8 --select C103 sickchill tests SickChill.py", help = "Check for undefined variables"}
+flake8 = {cmd = "flake8 --select C103 teevee tests TeeVee.py", help = "Check for undefined variables"}
 
 isort = {cmd = "isort .", help = "Fix import order"}
 black = {cmd = "black .", help = "Reformat code using black"}
 
-test_providers = {cmd = "pytest tests/sickchill_tests/providers/torrent/test_parsing.py", help = "Run provider tests"}
+test_providers = {cmd = "pytest tests/teevee_tests/providers/torrent/test_parsing.py", help = "Run provider tests"}
 crowdin_upload = "crowdin-cli-py upload sources -c .github/crowdin.yml"
 crowdin_download = "crowdin-cli-py download -c .github/crowdin.yml"
 po2json = "po2json --format jed "
@@ -215,12 +214,12 @@ test = [
 
 babel_extract = """
 pybabel extract
---project=sickchill
+--project=teevee
 --mapping-file=.github/babel-mapping.cfg
 --width=80
 --charset=utf-8
---output-file=sickchill/locale/messages.pot
---input-dirs=sickchill
+--output-file=teevee/locale/messages.pot
+--input-dirs=teevee
 --keywords=_n:1,2
 --copyright-holder=SickChill
 --msgid-bugs-address=miigotu@gmail.com
@@ -231,20 +230,20 @@ pybabel extract
 babel_compile = """
 pybabel compile
 --mapping-file=.github/babel-mapping.cfg
---directory=sickchill/locale
+--directory=teevee/locale
 """
 
 babel_init = """
 pybabel init
 --mapping_file=.github/babel-mapping.cfg
---output-dir=sickchill/locale
---input-file=sickchill/locale/messages.pot
+--output-dir=teevee/locale
+--input-file=teevee/locale/messages.pot
 """
 
 babel_update = """
 pybabel update
---output-dir=sickchill/locale
---input-file=sickchill/locale/messages.pot
+--output-dir=teevee/locale
+--input-file=teevee/locale/messages.pot
 --ignore-obsolete
 --previous
 """

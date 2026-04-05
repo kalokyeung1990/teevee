@@ -1,0 +1,15 @@
+[Unit]
+Description=teevee daemon
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=teevee
+Group=teevee
+
+Type=simple
+ExecStart=/usr/bin/teevee --quiet --nolaunch --no-update
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target

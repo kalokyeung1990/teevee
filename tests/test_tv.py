@@ -4,8 +4,8 @@ Test tv
 
 import unittest
 
-from sickchill import settings
-from sickchill.tv import TVEpisode, TVShow
+from teevee import settings
+from teevee.tv import TVEpisode, TVShow
 from tests import conftest
 
 

@@ -1,9 +1,9 @@
 import unittest
 
-import sickchill.logger
-from sickchill import settings
-from sickchill.oldbeard.providers import bitcannon, rarbg
-from sickchill.tv import TVEpisode, TVShow
+import teevee.logger
+from teevee import settings
+from teevee.oldbeard.providers import bitcannon, rarbg
+from teevee.tv import TVEpisode, TVShow
 from tests import conftest
 
 
@@ -65,10 +65,10 @@ if __name__ == "__main__":
         _ = args, kwargs
         print(msg)
 
-    sickchill.logger.info = override_log
-    sickchill.logger.debug = override_log
-    sickchill.logger.error = override_log
-    sickchill.logger.warning = override_log
+    teevee.logger.info = override_log
+    teevee.logger.debug = override_log
+    teevee.logger.error = override_log
+    teevee.logger.warning = override_log
 
     SUITE = unittest.TestLoader().loadTestsFromTestCase(TorrentBasicTests)
     unittest.TextTestRunner(verbosity=2).run(SUITE)

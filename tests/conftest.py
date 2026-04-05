@@ -25,15 +25,15 @@ import unittest
 import pytest
 from configobj import ConfigObj
 
-import sickchill.logger
-import sickchill.oldbeard.config
-import sickchill.oldbeard.tvcache
-import sickchill.start
-from sickchill import settings
-from sickchill.oldbeard import db, providers
-from sickchill.oldbeard.databases import cache, failed, main
-from sickchill.show.indexers import ShowIndexer
-from sickchill.tv import TVEpisode, TVShow
+import teevee.logger
+import teevee.oldbeard.config
+import teevee.oldbeard.tvcache
+import teevee.start
+from teevee import settings
+from teevee.oldbeard import db, providers
+from teevee.oldbeard.databases import cache, failed, main
+from teevee.show.indexers import ShowIndexer
+from teevee.tv import TVEpisode, TVShow
 
 # =================
 #  test globals
@@ -102,15 +102,15 @@ settings.CFG = ConfigObj(settings.CONFIG_FILE, encoding="UTF-8", indent_type="  
 settings.GUI_NAME = "slick"
 
 settings.LOG_DIR = os.path.join(TEST_DIR, "Logs")
-sickchill.logger.log_file = os.path.join(settings.LOG_DIR, "test_sickchill.log")
+teevee.logger.log_file = os.path.join(settings.LOG_DIR, "test_sickchill.log")
 create_test_log_folder()
 
 settings.CACHE_DIR = os.path.join(TEST_DIR, "cache")
 create_test_cache_folder()
 
-sickchill.logger.init_logging(False, True)
+teevee.logger.init_logging(False, True)
 
-sickchill.indexer = ShowIndexer()
+teevee.indexer = ShowIndexer()
 
 
 # =================
@@ -127,7 +127,7 @@ def _dummy_save_config():
 
 # this overrides the SickChill save_config which gets called during a db upgrade
 # this might be considered a hack
-sickchill.start.save_config = _dummy_save_config
+teevee.start.save_config = _dummy_save_config
 
 
 def _fake_specify_ep(self, season, episode):
@@ -241,8 +241,8 @@ class TestCacheDBConnection(TestDBConnection, object):
 
 
 # this will override the normal db connection
-sickchill.oldbeard.db.DBConnection = TestDBConnection
-sickchill.oldbeard.tvcache.CacheDBConnection = TestCacheDBConnection
+teevee.oldbeard.db.DBConnection = TestDBConnection
+teevee.oldbeard.tvcache.CacheDBConnection = TestCacheDBConnection
 
 
 # =================
@@ -270,7 +270,7 @@ def teardown_test_db():
     """
     Tear down the test database.
     """
-    from sickchill.oldbeard.db import db_cons
+    from teevee.oldbeard.db import db_cons
 
     for connection in db_cons:
         db_cons[connection].commit()

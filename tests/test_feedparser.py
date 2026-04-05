@@ -8,7 +8,7 @@
 # import sys
 # import unittest
 #
-# from sickchill.oldbeard.providers.binsearch import provider as binsearch
+# from teevee.oldbeard.providers.binsearch import provider as binsearch
 # import requests
 #
 #

@@ -11,7 +11,7 @@ import time
 import unittest
 from datetime import datetime
 
-import sickchill.oldbeard
+import teevee.oldbeard
 from tests import conftest
 
 
@@ -28,7 +28,7 @@ class DBBasicTests(conftest.SickChillTestDBCase):
         Set up base.
         """
         super().setUp()
-        self.sc_db = sickchill.oldbeard.db.DBConnection()
+        self.sc_db = teevee.oldbeard.db.DBConnection()
 
     def test_select(self):
         """
@@ -50,7 +50,7 @@ class DBMultiTests(conftest.SickChillTestDBCase):
         Set up base.
         """
         super().setUp()
-        self.sc_db = sickchill.oldbeard.db.DBConnection()
+        self.sc_db = teevee.oldbeard.db.DBConnection()
 
     def select(self):
         """
@@ -70,8 +70,8 @@ class DBMultiTests(conftest.SickChillTestDBCase):
 class CacheDBTests(conftest.SickChillTestDBCase):
     def setUp(self):
         super().setUp()
-        self.cache_db_con = sickchill.oldbeard.db.DBConnection("cache.db")
-        sickchill.oldbeard.db.upgrade_database(self.cache_db_con, sickchill.oldbeard.databases.cache.InitialSchema)
+        self.cache_db_con = teevee.oldbeard.db.DBConnection("cache.db")
+        teevee.oldbeard.db.upgrade_database(self.cache_db_con, teevee.oldbeard.databases.cache.InitialSchema)
 
         cur_timestamp = int(time.mktime(datetime.today().timetuple()))
         self.record = (

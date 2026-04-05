@@ -1,10 +1,10 @@
 import unittest
 
-import sickchill.oldbeard.providers
-from sickchill import settings
-from sickchill.oldbeard import common as common
-from sickchill.providers.GenericProvider import GenericProvider
-from sickchill.tv import TVEpisode, TVShow
+import teevee.oldbeard.providers
+from teevee import settings
+from teevee.oldbeard import common as common
+from teevee.providers.GenericProvider import GenericProvider
+from teevee.tv import TVEpisode, TVShow
 from tests import conftest
 
 TESTS = {
@@ -125,7 +125,7 @@ if __name__ == "__main__":
         for name, data in TESTS.items():
             filename = name.replace(" ", "_")
 
-            for provider in sickchill.oldbeard.providers.sorted_provider_list():
+            for provider in teevee.oldbeard.providers.sorted_provider_list():
                 if provider.provider_type == GenericProvider.TORRENT:
                     if forceSearch:
                         test_name = "test_manual_{0}_{1}_{2}".format(filename, data["tvdbid"], provider.name)

@@ -6,8 +6,8 @@ from collections import namedtuple
 
 from configobj import ConfigObj
 
-from sickchill import settings
-from sickchill.oldbeard import config, scheduler
+from teevee import settings
+from teevee.oldbeard import config, scheduler
 
 
 class ConfigTestBasic(unittest.TestCase):
@@ -244,7 +244,7 @@ class ConfigTestChanges(unittest.TestCase):
         settings.CUSTOM_CSS_PATH = ""  # Initialize
         assert not config.change_custom_css(__file__)  # not a css file
         assert not config.change_custom_css("not_real.jpg")  # doesn't exist
-        assert not config.change_custom_css("sickchill_tests")  # isn't a file
+        assert not config.change_custom_css("teevee_tests")  # isn't a file
         css_file = os.path.join(os.path.dirname(__file__), "custom.css")
         with open(css_file, "w") as f:
             f.write("table.main {\n    width: 100%;\n}")

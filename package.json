@@ -1,5 +1,5 @@
 {
-  "name": "sickchill",
+  "name": "teevee",
   "version": "2024.2.17",
   "private": true,
   "repository": {
@@ -84,7 +84,7 @@
       "!tests/js/helpers/setup-browser-env.js"
     ],
     "source": [
-      "sickchill/gui/slick/js/**/*.{js,jsx}",
+      "teevee/gui/slick/js/**/*.{js,jsx}",
       "!dist/**/*",
       "!lib/**/*",
       "!**/*.min.js"
@@ -123,7 +123,7 @@
       "vendor.min.js",
       "lib/**/*",
       "Gruntfile.js",
-      "sickchill/gui/slick/js/lib/*",
+      "teevee/gui/slick/js/lib/*",
       "tests/js/index.js",
       "frontend/static/*",
       "frontend/movies/static/",

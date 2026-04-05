@@ -4,10 +4,10 @@ Test snatching
 
 import unittest
 
-import sickchill.oldbeard.providers
-from sickchill import settings
-from sickchill.oldbeard import common as common, search as search
-from sickchill.tv import TVEpisode, TVShow
+import teevee.oldbeard.providers
+from teevee import settings
+from teevee.oldbeard import common as common, search as search
+from teevee.tv import TVEpisode, TVShow
 from tests import conftest
 
 TESTS = {
@@ -88,7 +88,7 @@ class SearchTest(conftest.SickChillTestDBCase):
         :return:
         """
 
-        for provider in sickchill.oldbeard.providers.sorted_provider_list():
+        for provider in teevee.oldbeard.providers.sorted_provider_list():
             provider.get_url = self._fake_get_url
             provider.is_active = self._fake_is_active
 

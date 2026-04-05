@@ -3,7 +3,7 @@ from collections import UserDict
 
 import pytest
 
-from sickchill.oldbeard.numdict import NumDict
+from teevee.oldbeard.numdict import NumDict
 
 
 class NumDictTest(unittest.TestCase):

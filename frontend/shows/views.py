@@ -1,10 +1,10 @@
 from flask import Blueprint, render_template
 
-from sickchill import logger, settings
+from teevee import logger, settings
 
 blueprint = Blueprint("shows", __name__, template_folder="templates", static_folder="static", url_prefix="/shows")
 
-# from sickchill.tv import TVEpisode, TVShow
+# from teevee.tv import TVEpisode, TVShow
 
 
 @blueprint.route("/")

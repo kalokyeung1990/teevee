@@ -4,11 +4,11 @@ Test notifiers
 
 import unittest
 
-from sickchill.oldbeard import db
-from sickchill.oldbeard.notifiers.emailnotify import Notifier as EmailNotifier
-from sickchill.oldbeard.notifiers.prowl import Notifier as ProwlNotifier
-from sickchill.tv import TVEpisode, TVShow
-from sickchill.views.home import Home
+from teevee.oldbeard import db
+from teevee.oldbeard.notifiers.emailnotify import Notifier as EmailNotifier
+from teevee.oldbeard.notifiers.prowl import Notifier as ProwlNotifier
+from teevee.tv import TVEpisode, TVShow
+from teevee.views.home import Home
 from tests import conftest
 
 

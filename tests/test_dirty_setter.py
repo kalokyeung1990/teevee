@@ -1,6 +1,6 @@
 import unittest
 
-from sickchill.tv import DirtySetter
+from teevee.tv import DirtySetter
 
 
 class DirtySetterTests(unittest.TestCase):

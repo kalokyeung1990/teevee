@@ -5,7 +5,7 @@ import sys
 import unittest
 from pathlib import Path
 
-from sickchill.oldbeard import browser
+from teevee.oldbeard import browser
 
 
 class BrowserTestAll(unittest.TestCase):

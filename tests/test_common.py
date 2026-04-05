@@ -4,8 +4,8 @@ import unittest
 
 import pytest
 
-from sickchill import settings
-from sickchill.oldbeard import common
+from teevee import settings
+from teevee.oldbeard import common
 
 
 class QualityStringTests(unittest.TestCase):

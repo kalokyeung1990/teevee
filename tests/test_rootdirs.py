@@ -4,7 +4,7 @@ from pathlib import Path
 from unittest import skip, TestCase
 from unittest.mock import patch
 
-from sickchill.helper.rootdirs import RootDirectories
+from teevee.helper.rootdirs import RootDirectories
 
 logging.basicConfig(format="{levelname} :: {message}", style="{", level=logging.DEBUG)
 
@@ -23,7 +23,7 @@ class TestRootDirectories(TestCase):
 
         cls.settings_root_dirs = f"1|{cls.path_one}|{cls.path_two}"
 
-        cls.patcher = patch("sickchill.settings.ROOT_DIRS", cls.settings_root_dirs)
+        cls.patcher = patch("teevee.settings.ROOT_DIRS", cls.settings_root_dirs)
         cls.patcher.start()
         cls.addClassCleanup(cls.patcher.stop)
 
@@ -36,7 +36,7 @@ class TestRootDirectories(TestCase):
         self.initial_index = self.object.default_root_index
 
     def test_parse(self):
-        from sickchill import settings
+        from teevee import settings
 
         self.object.parse()
         self.assertEqual(self.initial, str(self.object))
