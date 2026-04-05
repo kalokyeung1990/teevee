@@ -5,7 +5,7 @@
 %>
 <%block name="content">
     <%
-        if logLevel == sickchill.logger.WARNING:
+        if logLevel == teevee.logger.WARNING:
             errors = classes.WarningViewer.errors
             title = _('WARNING logs')
         else:

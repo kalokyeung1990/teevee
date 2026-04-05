@@ -2724,7 +2724,7 @@
                                 </div>
                                 <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12 component-desc">
                                     <select id="trakt_default_indexer" name="trakt_default_indexer" class="form-control input-sm input250" title="trakt_default_indexer">
-                                        % for indexer, instance in sickchill.indexer:
+                                        % for indexer, instance in teevee.indexer:
                                             <option value="${indexer}" ${selected(settings.TRAKT_DEFAULT_INDEXER == indexer)}>${instance.name}</option>
                                         % endfor
                                     </select>

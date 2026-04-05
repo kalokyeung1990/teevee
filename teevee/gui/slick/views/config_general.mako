@@ -46,7 +46,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <select name="indexerDefaultLang" id="indexerDefaultLang" class="form-control form-control-inline input-sm input350
-                                        bfh-languages" data-language="${settings.INDEXER_DEFAULT_LANGUAGE}" data-available="${','.join(sickchill.indexer.languages())}"></select>
+                                        bfh-languages" data-language="${settings.INDEXER_DEFAULT_LANGUAGE}" data-available="${','.join(teevee.indexer.languages())}"></select>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -224,7 +224,7 @@
                                     <div class="col-md-12">
                                         <select id="indexer_default" name="indexer_default" class="form-control input-sm input150">
                                             <option value="0" ${selected(settings.INDEXER_DEFAULT == 0)}>${_('All Indexers')}</option>
-                                            % for indexer, instance in sickchill.indexer:
+                                            % for indexer, instance in teevee.indexer:
                                                 <option value="${indexer}" ${selected(settings.INDEXER_DEFAULT == indexer)}>${instance.name}</option>
                                             % endfor
                                         </select>
@@ -378,7 +378,7 @@
                                     <div class="col-md-12">
                                         <select id="gui_language" name="gui_language" class="form-control input-sm input250">
                                             <option value="" ${selected(settings.GUI_LANG == "")}>${_('System Language')}</option>
-                                            % for lang in [language for language in os.listdir(sickchill.init_helpers.locale_dir) if '_' in language]:
+                                            % for lang in [language for language in os.listdir(teevee.init_helpers.locale_dir) if '_' in language]:
                                                 <option value="${lang}" ${selected(settings.GUI_LANG == lang)}>${lang_name(lang)}</option>
                                             % endfor
                                         </select>
