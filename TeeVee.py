@@ -51,8 +51,8 @@ from teevee.views.server_settings import SCWebServer
 # http://bugs.python.org/issue7980#msg221094
 THROWAWAY = datetime.datetime.strptime("20110101", "%Y%m%d")
 
-signal.signal(signal.SIGINT, sickchill.start.sig_handler)
-signal.signal(signal.SIGTERM, sickchill.start.sig_handler)
+signal.signal(signal.SIGINT, teevee.start.sig_handler)
+signal.signal(signal.SIGTERM, teevee.start.sig_handler)
 
 
 class TeeVee:
@@ -200,7 +200,7 @@ class TeeVee:
         settings.CFG = ConfigObj(settings.CONFIG_FILE, encoding="UTF-8", indent_type="  ")
 
         # Initialize the config and our threads
-        sickchill.start.initialize(
+        teevee.start.initialize(
             console_logging=self.console_logging, debug=args.debug, dbdebug=args.dbdebug, disable_file_logging=args.no_file_logging or args.debug
         )
 
@@ -252,7 +252,7 @@ class TeeVee:
             self.flask_server.start()
 
         # Fire up all our threads
-        sickchill.start.start()
+        teevee.start.start()
 
         # Build internal name cache
         name_cache.build_name_cache()
@@ -265,7 +265,7 @@ class TeeVee:
 
         # Launch browser
         if settings.LAUNCH_BROWSER and not self.no_launch:
-            sickchill.start.launchBrowser("https" if settings.ENABLE_HTTPS else "http", self.start_port, settings.WEB_ROOT)
+            teevee.start.launchBrowser("https" if settings.ENABLE_HTTPS else "http", self.start_port, settings.WEB_ROOT)
 
         # main loop
         while True:
@@ -341,8 +341,8 @@ class TeeVee:
         :param event: Type of shutdown event, used to see if restart required
         """
         if settings.started:
-            sickchill.start.halt()  # stop all tasks
-            sickchill.start.save_all()  # save all shows to DB
+            teevee.start.halt()  # stop all tasks
+            teevee.start.save_all()  # save all shows to DB
 
             # shutdown web server
             if self.web_server:
@@ -360,7 +360,7 @@ class TeeVee:
             # if run as daemon delete the pid file
             remove_pid_file()
 
-            if event == sickchill.oldbeard.event_queue.Events.SystemEvent.RESTART:
+            if event == teevee.oldbeard.event_queue.Events.SystemEvent.RESTART:
                 popen_list = [sys.executable, settings.MY_FULLNAME]
                 if popen_list and not settings.NO_RESTART:
                     popen_list += settings.MY_ARGS
