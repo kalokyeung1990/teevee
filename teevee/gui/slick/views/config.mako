@@ -217,44 +217,8 @@
                     <i class="icon16-config-github"></i>&nbsp;&nbsp;${_('Source')}:
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                    <a href="${anon_url('https://github.com/SickChill/SickChill/')}" rel="noreferrer" target="_blank">
-                        https://github.com/SickChill/SickChill/
-                    </a>
-                </div>
-            </div>
-            <br/>
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <i class="fa fa-fw fa-discord" style="color: #6B8ADB"></i>${_('Discord')}:
-                </div>
-                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                    <a href="https://discord.gg/U8WPBdf" rel="noreferrer">
-                        https://discord.gg/U8WPBdf
-                    </a>
-                </div>
-            </div>
-            <br/>
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <i class="fa fa-fw fa-slack" style="color: #3A0B36"></i>${_('Slack')}:
-                </div>
-                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                    <a href="https://sickchill.slack.com" rel="noreferrer">
-                        Workspace
-                    </a>
-                    <a href="https://join.slack.com/t/sickchill/shared_invite/zt-60hql14k-u7eJ3Dbl91Cb2LZgtqKpUw" rel="noreferrer">
-                        (Invite)
-                    </a>
-                </div>
-            </div>
-            <br/>
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <i class="fa fa-fw fa-telegram" style="color: #38789A"></i>${_('Telegram')}:
-                </div>
-                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                    <a href="https://t.me/sickchill" rel="noreferrer">
-                        https://t.me/sickchill
+                    <a href="${anon_url('https://github.com/kalokyeung1990/teevee/')}" rel="noreferrer" target="_blank">
+                        https://github.com/kalokyeung1990/teevee/
                     </a>
                 </div>
             </div>

@@ -256,9 +256,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="${static_url('news/', include_version=False)}"><i class="fa fa-fw fa-newspaper-o"></i>&nbsp;${_('News')}${newsBadge}</a></li>
-                                    <li><a href="${anon_url('https://discord.gg/U8WPBdf')}"><i class="fa fa-fw fa-discord-alt"></i>&nbsp;${_('Discord')}</a></li>
                                     <li><a href="${static_url('changes/', include_version=False)}"><i class="fa fa-fw fa-globe"></i>&nbsp;${_('Changelog')}</a></li>
-                                    <li><a href="${anon_url('https://github.com/SickChill/SickChill/wiki/Donations')}" rel="noreferrer" target="_blank"><i class="fa fa-fw fa-life-ring"></i>&nbsp;${_('Support SickChill')}</a></li>
                                     <li role="separator" class="divider"></li>
                                     %if error_count:
                                         <li><a href="${static_url('errorlogs/', include_version=False)}"><i class="fa fa-fw fa-exclamation-circle"></i>&nbsp;${_('View Errors')} <span class="badge btn-danger">${error_count}</span></a></li>
