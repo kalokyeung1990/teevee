@@ -1,4 +1,13 @@
-### 2024.3.1
+### 2026.4.6
+
+* Rebrand from SickChill to TeeVee
+* Change default port to 3333
+* Remove Discord, Slack, Telegram links
+* Add own news feed
+* Update author to Kalok Yeung
+* Connect changelog to GitHub repo
+
+### 2024.3.1 (upstream)
 
 [full changelog](https://github.com/SickChill/SickChill/compare/2024.2.27...2024.3.1)
 
