@@ -28,7 +28,7 @@ class Notifier(object):
         :param id: The User's API Key
         :returns: the notification
         """
-        return self._notify_join("Test", "This is a test notification from SickChill", id, apikey, force=True)
+        return self._notify_join("Test", "This is a test notification from TeeVee", id, apikey, force=True)
 
     @staticmethod
     def _send_join_msg(title, msg, id=None, apikey=None):
@@ -53,7 +53,7 @@ class Notifier(object):
             "deviceId": id,
             "title": title,
             "text": message,
-            "icon": "https://raw.githubusercontent.com/SickChill/SickChill/master/sickchill/gui/slick/images/sickchill.png",
+            "icon": "https://raw.githubusercontent.com/TeeVee/TeeVee/master/sickchill/gui/slick/images/sickchill.png",
         }
         payload = urllib.parse.urlencode(params)
         join_api = "https://joinjoaomgcd.appspot.com/_ah/api/messaging/v1/sendPush?" + payload

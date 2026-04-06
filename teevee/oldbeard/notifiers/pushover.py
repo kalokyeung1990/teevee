@@ -27,7 +27,7 @@ class Notifier(object):
         self.session = make_session()
 
     def test_notify(self, userKey=None, apiKey=None):
-        return self._notify_pushover("This is a test notification from SickChill", "Test", userKey=userKey, apiKey=apiKey, force=True)
+        return self._notify_pushover("This is a test notification from TeeVee", "Test", userKey=userKey, apiKey=apiKey, force=True)
 
     def _send_pushover(self, msg, title, sound=None, userKey=None, apiKey=None, priority=None):
         """

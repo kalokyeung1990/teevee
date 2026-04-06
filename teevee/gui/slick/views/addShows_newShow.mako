@@ -78,7 +78,7 @@
                                             <div class="col-md-12">
                                                 <span>${_('This will only affect the language of the retrieved metadata file contents and episode file names.')}</span>
                                                 <br/>
-                                                <span>${_('This <b>DOES NOT</b> allow SickChill to download non-english TV episodes!')}</span>
+                                                <span>${_('This <b>DOES NOT</b> allow TeeVee to download non-english TV episodes!')}</span>
                                             </div>
                                         </div>
                                     </div>

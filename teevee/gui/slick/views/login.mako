@@ -10,16 +10,16 @@
             <div class="nicetry col-md-10">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>SickChill</h1>
+                        <h1>TeeVee</h1>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <p>
-                            If you are the owner of this server, your SickChill installation is exposed to the internet without a password.
+                            If you are the owner of this server, your TeeVee installation is exposed to the internet without a password.
                             You will need access to the local network where this machine is to set the password through the interface.
-                            Otherwise, you will need to stop SickChill and edit web_user and web_pass in the config.ini manually before
-                            starting SickChill back up.
+                            Otherwise, you will need to stop TeeVee and edit web_user and web_pass in the config.ini manually before
+                            starting TeeVee back up.
 
                             This may seem like an inconvenience, but your logins and file system being exposed is much more inconvenient.
                         </p>
@@ -38,7 +38,7 @@
                     <form action="" method="post">
                         <div class="row">
                             <div class="col-md-12">
-                                <h1>SickChill</h1>
+                                <h1>TeeVee</h1>
                             </div>
                         </div>
                         <div class="row">

@@ -9,7 +9,7 @@ from teevee.oldbeard import common
 class Notifier(object):
     def test_notify(self, host, password):
         self._sendRegistration(host, password, "Test")
-        return self._sendGrowl("Test Growl", "Testing Growl settings from SickChill", "Test", host, password, force=True)
+        return self._sendGrowl("Test Growl", "Testing Growl settings from TeeVee", "Test", host, password, force=True)
 
     def notify_snatch(self, ep_name):
         if settings.GROWL_NOTIFY_ONSNATCH:
@@ -75,7 +75,7 @@ class Notifier(object):
 
         return response
 
-    def _sendGrowl(self, title="SickChill Notification", message=None, name=None, host=None, password=None, force=False):
+    def _sendGrowl(self, title="TeeVee Notification", message=None, name=None, host=None, password=None, force=False):
         if not settings.USE_GROWL and not force:
             return False
 
@@ -94,7 +94,7 @@ class Notifier(object):
 
         growlHosts = [(hostParts[0], port)]
 
-        opts = {"name": name, "title": title, "app": "SickChill", "sticky": None, "priority": None, "debug": False}
+        opts = {"name": name, "title": title, "app": "TeeVee", "sticky": None, "priority": None, "debug": False}
 
         if password is None:
             opts["password"] = settings.GROWL_PASSWORD
@@ -111,7 +111,7 @@ class Notifier(object):
                 if self._send_growl(opts, message):
                     return True
                 else:
-                    if self._sendRegistration(host, password, "SickChill"):
+                    if self._sendRegistration(host, password, "TeeVee"):
                         return self._send_growl(opts, message)
                     else:
                         return False
@@ -119,7 +119,7 @@ class Notifier(object):
                 logger.warning(f"GROWL: Unable to send growl to {opts['host']}:{opts['port']} - {error}")
                 return False
 
-    def _sendRegistration(self, host=None, password=None, name="SickChill Notification"):
+    def _sendRegistration(self, host=None, password=None, name="TeeVee Notification"):
         opts = {}
 
         if host is None:
@@ -140,7 +140,7 @@ class Notifier(object):
         else:
             opts["password"] = password
 
-        opts["app"] = "SickChill"
+        opts["app"] = "TeeVee"
         opts["debug"] = False
 
         # Send Registration

@@ -35,7 +35,7 @@ class Notifier(object):
         :param token: Gotify authorization token
         :returns: the notification
         """
-        return self._notify_gotify("Test", "This is a test notification from SickChill", host, token, force=True)
+        return self._notify_gotify("Test", "This is a test notification from TeeVee", host, token, force=True)
 
     def _send_gotify_msg(self, title, msg, host=None, token=None):
         """

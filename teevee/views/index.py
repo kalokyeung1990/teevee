@@ -419,7 +419,7 @@ class UI(WebRoot):
             helpers.add_site_message(message, tag=tag, level=level)
         else:
             if self.get_current_user() and not (check_installed() or settings.DEVELOPER):
-                message = _("SickChill no longer is supported unless installed with pip or poetry. Source and git installs are for experienced users only")
+                message = _("TeeVee no longer is supported unless installed with pip or poetry. Source and git installs are for experienced users only")
                 helpers.add_site_message(message, tag="not_installed")
 
         return settings.SITE_MESSAGES

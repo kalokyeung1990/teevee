@@ -24,7 +24,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                     <div class="component-group-desc">
                         <h3>${_('Post-Processing')}</h3>
-                        <p>${_('Settings that dictate how SickChill should process completed downloads.')}</p>
+                        <p>${_('Settings that dictate how TeeVee should process completed downloads.')}</p>
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12">
@@ -140,7 +140,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <span class="component-desc">${_('comma separated list of extensions or filename globs SickChill ignores when Post Processing')}</span>
+                                        <span class="component-desc">${_('comma separated list of extensions or filename globs TeeVee ignores when Post Processing')}</span>
                                     </div>
                                 </div>
                             </div>
@@ -201,7 +201,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <input type="text" name="allowed_extensions" id="allowed_extensions" value="${settings.ALLOWED_EXTENSIONS}" class="form-control input-sm input350" autocapitalize="off" />
-                                        <label for="allowed_extensions">${_('comma separated list of associated file extensions SickChill should keep while post processing.')}</label>
+                                        <label for="allowed_extensions">${_('comma separated list of associated file extensions TeeVee should keep while post processing.')}</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -452,7 +452,7 @@
                                     <div class="col-md-12">
                                         <label>
                                             ${_('see')}
-                                            <a href="https://github.com/SickChill/SickChill/wiki/Post-Processing#extra-scripts">
+                                            <a href="https://github.com/TeeVee/TeeVee/wiki/Post-Processing#extra-scripts">
                                                 <span style="color:red;">Wiki</span>
                                             </a>${_('for script arguments description and usage.')}
                                         </label>
@@ -472,7 +472,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                     <div class="component-group-desc">
                         <h3>${_('Episode Naming')}</h3>
-                        <p>${_('How SickChill will name and sort your episodes.')}</p>
+                        <p>${_('How TeeVee will name and sort your episodes.')}</p>
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12">
@@ -683,7 +683,7 @@
                                                 <td>${_('Show.Name')}.S02E03.HDTV.XviD-RLSGROUP</td>
                                             </tr>
                                             <tr>
-                                                <td class="align-right"><i class="glyphicon glyphicon-info-sign" title="'${_('SickChill\' is used in place of RLSGROUP if it could not be properly detected')}"></i> <b>${_('Release Group')}:</b></td>
+                                                <td class="align-right"><i class="glyphicon glyphicon-info-sign" title="'${_('TeeVee\' is used in place of RLSGROUP if it could not be properly detected')}"></i> <b>${_('Release Group')}:</b></td>
                                                 <td>%RG</td>
                                                 <td>RLSGROUP</td>
                                             </tr>
@@ -937,7 +937,7 @@
                                                     <td>${_('Show.Name')}.2010.03.09.HDTV.XviD-RLSGROUP</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="align-right"><i class="glyphicon glyphicon-info-sign" title="'${_('SickChill\' is used in place of RLSGROUP if it could not be properly detected')}"></i> <b>${_('Release Group')}:</b></td>
+                                                    <td class="align-right"><i class="glyphicon glyphicon-info-sign" title="'${_('TeeVee\' is used in place of RLSGROUP if it could not be properly detected')}"></i> <b>${_('Release Group')}:</b></td>
                                                     <td>%RG</td>
                                                     <td>RLSGROUP</td>
                                                 </tr>
@@ -1137,7 +1137,7 @@
                                                     <td>${_('Show.Name')}.9th.Mar.2011.HDTV.XviD-RLSGROUP</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="align-right"><i class="glyphicon glyphicon-info-sign" title="'${_('SickChill\' is used in place of RLSGROUP if it could not be properly detected')}"></i> <b>${_('Release Group')}:</b></td>
+                                                    <td class="align-right"><i class="glyphicon glyphicon-info-sign" title="'${_('TeeVee\' is used in place of RLSGROUP if it could not be properly detected')}"></i> <b>${_('Release Group')}:</b></td>
                                                     <td>%RG</td>
                                                     <td>RLSGROUP</td>
                                                 </tr>
@@ -1333,7 +1333,7 @@
                                                     <td>${_('Show.Name')}.S02E03.HDTV.XviD-RLSGROUP</td>
                                                 </tr>
                                                 <tr class="even">
-                                                    <td class="align-right"><i class="glyphicon glyphicon-info-sign" title="'${_('SickChill\' is used in place of RLSGROUP if it could not be properly detected')}"></i> <b>${_('Release Group')}:</b></td>
+                                                    <td class="align-right"><i class="glyphicon glyphicon-info-sign" title="'${_('TeeVee\' is used in place of RLSGROUP if it could not be properly detected')}"></i> <b>${_('Release Group')}:</b></td>
                                                     <td>%RG</td>
                                                     <td>RLSGROUP</td>
                                                 </tr>

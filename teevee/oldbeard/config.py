@@ -928,8 +928,8 @@ class ConfigMigrator(object):
 
         if self.config_version > self.expected_config_version:
             logger.log_error_and_exit(
-                """Your config version ({0:d}) has been incremented past what this version of SickChill supports ({1:d}).
-                If you have used other forks or a newer version of SickChill, your config file may be unusable due to their modifications.""".format(
+                """Your config version ({0:d}) has been incremented past what this version of TeeVee supports ({1:d}).
+                If you have used other forks or a newer version of TeeVee, your config file may be unusable due to their modifications.""".format(
                     self.config_version, self.expected_config_version
                 )
             )

@@ -8,7 +8,7 @@ from teevee.oldbeard import common
 
 
 class Notifier(object):
-    ROCKETCHAT_ICON_URL = "https://github.com/SickChill/SickChill/raw/master/sickchill/gui/slick/images/sickchill-sc.png"
+    ROCKETCHAT_ICON_URL = "https://github.com/TeeVee/TeeVee/raw/master/sickchill/gui/slick/images/sickchill-sc.png"
 
     def notify_snatch(self, ep_name):
         if settings.ROCKETCHAT_NOTIFY_SNATCH:
@@ -35,7 +35,7 @@ class Notifier(object):
             self._notify_rocketchat(title + " - " + update_text.format(ipaddress))
 
     def test_notify(self):
-        return self._notify_rocketchat("This is a test notification from SickChill", force=True)
+        return self._notify_rocketchat("This is a test notification from TeeVee", force=True)
 
     def _send_rocketchat(self, message=None):
         rocketchat_webhook = settings.ROCKETCHAT_WEBHOOK

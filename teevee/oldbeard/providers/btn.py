@@ -137,7 +137,7 @@ class Provider(TorrentProvider):
 
     def _get_title_and_url(self, data):
         # The BTN API gives a lot of information in response,
-        # however SickChill is built mostly around Scene or
+        # however TeeVee is built mostly around Scene or
         # release names, which is why we are using them here.
         release_name = data.get("ReleaseName")
         if release_name:

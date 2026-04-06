@@ -110,7 +110,7 @@ class ApiHandler(RequestHandler):
             logger.info(traceback.format_exc())
             logger.exception(f"API :: {error}")
             error_data = {"error_msg": f"{error}", "args": args, "kwargs": kwargs}
-            out_dict = _responds(RESULT_FATAL, error_data, "SickChill encountered an internal error! Please report to the Devs")
+            out_dict = _responds(RESULT_FATAL, error_data, "TeeVee encountered an internal error! Please report to the Devs")
 
         if "outputType" in out_dict:
             output_callback = output_callback_dict[out_dict["outputType"]]
@@ -203,7 +203,7 @@ class ApiHandler(RequestHandler):
             if multi_commands:  # if we had multiple commands we have to wrap it in a response dict
                 out_dict = _responds(RESULT_SUCCESS, out_dict)
         else:  # index / no cmd given
-            out_dict = CMDSickChill(args, kwargs).run()
+            out_dict = CMDTeeVee(args, kwargs).run()
 
         return out_dict
 
@@ -650,7 +650,7 @@ class CMDComingEpisodes(ApiCall):
         "optionalParameters": {
             "sort": {"desc": "Change the sort order"},
             "type": {"desc": "One or more categories of coming episodes, separated by |"},
-            "paused": {"desc": "0 to exclude paused shows, 1 to include them, or omitted to use SickChill default value"},
+            "paused": {"desc": "0 to exclude paused shows, 1 to include them, or omitted to use TeeVee default value"},
         },
     }
 
@@ -1384,19 +1384,19 @@ class CMDPostProcess(ApiCall):
 
 
 # noinspection PyAbstractClass
-class CMDSickChill(ApiCall):
-    _help = {"desc": "Get miscellaneous information about SickChill"}
+class CMDTeeVee(ApiCall):
+    _help = {"desc": "Get miscellaneous information about TeeVee"}
 
     def run(self):
-        """dGet miscellaneous information about SickChill"""
+        """dGet miscellaneous information about TeeVee"""
         data = {"sc_version": get_current_version(), "api_version": self.version, "api_commands": sorted(function_mapper)}
         return _responds(RESULT_SUCCESS, data)
 
 
 # noinspection PyAbstractClass
-class CMDSickChillAddRootDir(ApiCall):
+class CMDTeeVeeAddRootDir(ApiCall):
     _help = {
-        "desc": "Add a new root (parent) directory to SickChill",
+        "desc": "Add a new root (parent) directory to TeeVee",
         "requiredParameters": {
             "location": {"desc": "The full path to the new root (parent) directory"},
         },
@@ -1411,7 +1411,7 @@ class CMDSickChillAddRootDir(ApiCall):
         self.default, args = self.check_params(args, kwargs, "default", False, False, "bool", [])
 
     def run(self):
-        """Add a new root (parent) directory to SickChill"""
+        """Add a new root (parent) directory to TeeVee"""
 
         self.location = urllib.parse.unquote_plus(self.location)
 
@@ -1436,8 +1436,8 @@ class CMDSickChillAddRootDir(ApiCall):
 
 
 # noinspection PyAbstractClass
-class CMDSickChillCheckVersion(ApiCall):
-    _help = {"desc": "Check if a new version of SickChill is available"}
+class CMDTeeVeeCheckVersion(ApiCall):
+    _help = {"desc": "Check if a new version of TeeVee is available"}
 
     def run(self):
         update_manager = UpdateManager()
@@ -1458,7 +1458,7 @@ class CMDSickChillCheckVersion(ApiCall):
 
 
 # noinspection PyAbstractClass
-class CMDSickChillBackup(ApiCall):
+class CMDTeeVeeBackup(ApiCall):
     _help = {
         "desc": "Make a backup of settings, databases, and cached images",
         "optionalParameters": {"location": {"desc": "The full path to the folder where you want to save the backup (must exist)"}},
@@ -1489,7 +1489,7 @@ class CMDSickChillBackup(ApiCall):
 
 
 # noinspection PyAbstractClass
-class CMDSickChillCheckScheduler(ApiCall):
+class CMDTeeVeeCheckScheduler(ApiCall):
     _help = {"desc": "Get information about the scheduler"}
 
     def run(self):
@@ -1511,9 +1511,9 @@ class CMDSickChillCheckScheduler(ApiCall):
 
 
 # noinspection PyAbstractClass
-class CMDSickChillDeleteRootDir(ApiCall):
+class CMDTeeVeeDeleteRootDir(ApiCall):
     _help = {
-        "desc": "Delete a root (parent) directory from SickChill",
+        "desc": "Delete a root (parent) directory from TeeVee",
         "requiredParameters": {
             "location": {"desc": "The full path to the root (parent) directory to remove"},
         },
@@ -1524,7 +1524,7 @@ class CMDSickChillDeleteRootDir(ApiCall):
         self.location, args = self.check_params(args, kwargs, "location", None, True, "string", [])
 
     def run(self):
-        """Delete a root (parent) directory from SickChill"""
+        """Delete a root (parent) directory from TeeVee"""
         if not settings.ROOT_DIRS:
             return _responds(RESULT_FAILURE, _get_root_dirs(), msg="No root directories detected")
 
@@ -1550,11 +1550,11 @@ class CMDSickChillDeleteRootDir(ApiCall):
 
 
 # noinspection PyAbstractClass
-class CMDSickChillGetDefaults(ApiCall):
-    _help = {"desc": "Get SickChill's user default configuration value"}
+class CMDTeeVeeGetDefaults(ApiCall):
+    _help = {"desc": "Get TeeVee's user default configuration value"}
 
     def run(self):
-        """Get SickChill's user default configuration value"""
+        """Get TeeVee's user default configuration value"""
 
         any_qualities, best_qualities = _map_quality(settings.QUALITY_DEFAULT)
 
@@ -1570,7 +1570,7 @@ class CMDSickChillGetDefaults(ApiCall):
 
 
 # noinspection PyAbstractClass
-class CMDSickChillGetMessages(ApiCall):
+class CMDTeeVeeGetMessages(ApiCall):
     _help = {"desc": "Get all messages"}
 
     def run(self):
@@ -1581,7 +1581,7 @@ class CMDSickChillGetMessages(ApiCall):
 
 
 # noinspection PyAbstractClass
-class CMDSickChillGetRootDirs(ApiCall):
+class CMDTeeVeeGetRootDirs(ApiCall):
     _help = {"desc": "Get all root (parent) directories"}
 
     def run(self):
@@ -1591,7 +1591,7 @@ class CMDSickChillGetRootDirs(ApiCall):
 
 
 # noinspection PyAbstractClass
-class CMDSickChillPauseBacklog(ApiCall):
+class CMDTeeVeePauseBacklog(ApiCall):
     _help = {
         "desc": "Pause or un-pause the backlog search",
         "optionalParameters": {"pause": {"desc": "True to pause the backlog search, False to un-pause it"}},
@@ -1612,11 +1612,11 @@ class CMDSickChillPauseBacklog(ApiCall):
 
 
 # noinspection PyAbstractClass
-class CMDSickChillPing(ApiCall):
-    _help = {"desc": "Ping SickChill to check if it is running"}
+class CMDTeeVeePing(ApiCall):
+    _help = {"desc": "Ping TeeVee to check if it is running"}
 
     def run(self):
-        """Ping SickChill to check if it is running"""
+        """Ping TeeVee to check if it is running"""
         if settings.started:
             return _responds(RESULT_SUCCESS, {"pid": settings.PID}, "Pong")
         else:
@@ -1624,19 +1624,19 @@ class CMDSickChillPing(ApiCall):
 
 
 # noinspection PyAbstractClass
-class CMDSickChillRestart(ApiCall):
-    _help = {"desc": "Restart SickChill"}
+class CMDTeeVeeRestart(ApiCall):
+    _help = {"desc": "Restart TeeVee"}
 
     def run(self):
-        """Restart SickChill"""
+        """Restart TeeVee"""
         if not Restart.restart(settings.PID):
-            return _responds(RESULT_FAILURE, msg="SickChill can not be restarted")
+            return _responds(RESULT_FAILURE, msg="TeeVee can not be restarted")
 
-        return _responds(RESULT_SUCCESS, msg="SickChill is restarting...")
+        return _responds(RESULT_SUCCESS, msg="TeeVee is restarting...")
 
 
 # noinspection PyAbstractClass
-class CMDSickChillSearchIndexers(ApiCall):
+class CMDTeeVeeSearchIndexers(ApiCall):
     _help = {
         "desc": "Search for a show with a given name on all the indexers, in a specific language",
         "optionalParameters": {
@@ -1702,7 +1702,7 @@ class CMDSickChillSearchIndexers(ApiCall):
 
 
 # noinspection PyAbstractClass
-class CMDSickChillSearchTVDB(CMDSickChillSearchIndexers):
+class CMDTeeVeeSearchTVDB(CMDTeeVeeSearchIndexers):
     _help = {
         "desc": "Search for a show with a given name on The TVDB, in a specific language",
         "optionalParameters": {
@@ -1718,7 +1718,7 @@ class CMDSickChillSearchTVDB(CMDSickChillSearchIndexers):
 
 
 # noinspection PyAbstractClass
-class CMDSickChillSearchTVRAGE(CMDSickChillSearchIndexers):
+class CMDTeeVeeSearchTVRAGE(CMDTeeVeeSearchIndexers):
     """
     Deprecated, TVRage is no more.
     """
@@ -1736,9 +1736,9 @@ class CMDSickChillSearchTVRAGE(CMDSickChillSearchIndexers):
 
 
 # noinspection PyAbstractClass
-class CMDSickChillSetDefaults(ApiCall):
+class CMDTeeVeeSetDefaults(ApiCall):
     _help = {
-        "desc": "Set SickChill's user default configuration value",
+        "desc": "Set TeeVee's user default configuration value",
         "optionalParameters": {
             "initial": {"desc": "The initial quality of a show"},
             "archive": {"desc": "The archive quality of a show"},
@@ -1759,7 +1759,7 @@ class CMDSickChillSetDefaults(ApiCall):
         self.status, args = self.check_params(args, kwargs, "status", None, False, "string", ["wanted", "skipped", "archived", "ignored"])
 
     def run(self):
-        """Set SickChill's user default configuration value"""
+        """Set TeeVee's user default configuration value"""
 
         i_quality_id = []
         a_quality_id = []
@@ -1795,20 +1795,20 @@ class CMDSickChillSetDefaults(ApiCall):
 
 
 # noinspection PyAbstractClass
-class CMDSickChillShutdown(ApiCall):
-    _help = {"desc": "Shutdown SickChill"}
+class CMDTeeVeeShutdown(ApiCall):
+    _help = {"desc": "Shutdown TeeVee"}
 
     def run(self):
-        """Shutdown SickChill"""
+        """Shutdown TeeVee"""
         if not Shutdown.stop(settings.PID):
-            return _responds(RESULT_FAILURE, msg="SickChill can not be shut down")
+            return _responds(RESULT_FAILURE, msg="TeeVee can not be shut down")
 
-        return _responds(RESULT_SUCCESS, msg="SickChill is shutting down...")
+        return _responds(RESULT_SUCCESS, msg="TeeVee is shutting down...")
 
 
 # noinspection PyAbstractClass
-class CMDSickChillUpdate(ApiCall):
-    _help = {"desc": "Update SickChill to the latest version available"}
+class CMDTeeVeeUpdate(ApiCall):
+    _help = {"desc": "Update TeeVee to the latest version available"}
 
     def run(self):
         update_manager = UpdateManager()
@@ -1816,9 +1816,9 @@ class CMDSickChillUpdate(ApiCall):
         if update_manager.check_for_new_version():
             if update_manager.run_backup_if_safe():
                 update_manager.update()
-                return _responds(RESULT_SUCCESS, msg="SickChill is updating ...")
-            return _responds(RESULT_FAILURE, msg="SickChill could not backup config ...")
-        return _responds(RESULT_FAILURE, msg="SickChill is already up to date")
+                return _responds(RESULT_SUCCESS, msg="TeeVee is updating ...")
+            return _responds(RESULT_FAILURE, msg="TeeVee could not backup config ...")
+        return _responds(RESULT_FAILURE, msg="TeeVee is already up to date")
 
 
 # noinspection PyAbstractClass
@@ -1914,7 +1914,7 @@ class CMDShow(ApiCall):
 # noinspection PyAbstractClass
 class CMDShowAddExisting(ApiCall):
     _help = {
-        "desc": "Add an existing show in SickChill",
+        "desc": "Add an existing show in TeeVee",
         "requiredParameters": {
             "indexerid": {"desc": "Unique ID of a show"},
             "location": {"desc": "Full path to the existing shows's folder"},
@@ -1940,7 +1940,7 @@ class CMDShowAddExisting(ApiCall):
         self.subtitles, args = self.check_params(args, kwargs, "subtitles", int(settings.USE_SUBTITLES), False, "int", [])
 
     def run(self):
-        """Add an existing show in SickChill"""
+        """Add an existing show in TeeVee"""
         show_obj = Show.find(settings.show_list, int(self.indexerid))
         if show_obj:
             return _responds(RESULT_FAILURE, msg="An existing indexerid already exists in the database")
@@ -1949,7 +1949,7 @@ class CMDShowAddExisting(ApiCall):
             return _responds(RESULT_FAILURE, msg="Not a valid location")
 
         indexer_name = None
-        indexer_result = CMDSickChillSearchIndexers(tuple(), {indexer_ids[self.indexer]: self.indexerid}).run()
+        indexer_result = CMDTeeVeeSearchIndexers(tuple(), {indexer_ids[self.indexer]: self.indexerid}).run()
 
         if indexer_result["result"] == result_type_map[RESULT_SUCCESS]:
             if not indexer_result["data"]["results"]:
@@ -1997,7 +1997,7 @@ class CMDShowAddExisting(ApiCall):
 # noinspection PyAbstractClass
 class CMDShowAddNew(ApiCall):
     _help = {
-        "desc": "Add a new show to SickChill",
+        "desc": "Add a new show to TeeVee",
         "requiredParameters": {
             "indexerid": {"desc": "Unique ID of a show"},
         },
@@ -2033,7 +2033,7 @@ class CMDShowAddNew(ApiCall):
         self.future_status, args = self.check_params(args, kwargs, "future_status", None, False, "string", ["wanted", "skipped", "ignored"])
 
     def run(self):
-        """Add a new show to SickChill"""
+        """Add a new show to TeeVee"""
         show_obj = Show.find(settings.show_list, int(self.indexerid))
         if show_obj:
             return _responds(RESULT_FAILURE, msg="An existing indexerid already exists in database")
@@ -2091,7 +2091,7 @@ class CMDShowAddNew(ApiCall):
             default_ep_status_after = self.future_status
 
         indexer_name = None
-        indexer_result = CMDSickChillSearchIndexers(tuple(), {indexer_ids[self.indexer]: self.indexerid, "lang": self.lang}).run()
+        indexer_result = CMDTeeVeeSearchIndexers(tuple(), {indexer_ids[self.indexer]: self.indexerid, "lang": self.lang}).run()
 
         if indexer_result["result"] == result_type_map[RESULT_SUCCESS]:
             if not indexer_result["data"]["results"]:
@@ -2139,7 +2139,7 @@ class CMDShowAddNew(ApiCall):
 # noinspection PyAbstractClass
 class CMDShowCache(ApiCall):
     _help = {
-        "desc": "Check SickChill's cache to see if the images (poster, banner, fanart) for a show are valid",
+        "desc": "Check TeeVee's cache to see if the images (poster, banner, fanart) for a show are valid",
         "requiredParameters": {
             "indexerid": {"desc": "Unique ID of a show"},
         },
@@ -2153,7 +2153,7 @@ class CMDShowCache(ApiCall):
         self.indexerid, args = self.check_params(args, kwargs, "indexerid", None, True, "int", [])
 
     def run(self):
-        """Check SickChill's cache to see if the images (poster, banner, fanart) for a show are valid"""
+        """Check TeeVee's cache to see if the images (poster, banner, fanart) for a show are valid"""
         show_obj = Show.find(settings.show_list, int(self.indexerid))
         if not show_obj:
             return _responds(RESULT_FAILURE, msg="Show not found")
@@ -2185,7 +2185,7 @@ class CMDShowCache(ApiCall):
 # noinspection PyAbstractClass
 class CMDShowDelete(ApiCall):
     _help = {
-        "desc": "Delete a show in SickChill",
+        "desc": "Delete a show in TeeVee",
         "requiredParameters": {
             "indexerid": {"desc": "Unique ID of a show"},
         },
@@ -2201,7 +2201,7 @@ class CMDShowDelete(ApiCall):
         self.removefiles, args = self.check_params(args, kwargs, "removefiles", False, False, "bool", [])
 
     def run(self):
-        """Delete a show in SickChill"""
+        """Delete a show in TeeVee"""
         error, show = Show.delete(self.indexerid, self.removefiles)
         if error:
             return _responds(RESULT_FAILURE, msg=error)
@@ -2374,7 +2374,7 @@ class CMDShowPause(ApiCall):
 # noinspection PyAbstractClass
 class CMDShowRefresh(ApiCall):
     _help = {
-        "desc": "Refresh a show in SickChill",
+        "desc": "Refresh a show in TeeVee",
         "requiredParameters": {
             "indexerid": {"desc": "Unique ID of a show"},
         },
@@ -2388,7 +2388,7 @@ class CMDShowRefresh(ApiCall):
         self.indexerid, args = self.check_params(args, kwargs, "indexerid", None, True, "int", [])
 
     def run(self):
-        """Refresh a show in SickChill"""
+        """Refresh a show in TeeVee"""
         error, show = Show.refresh(self.indexerid)
         if error:
             return _responds(RESULT_FAILURE, msg=error)
@@ -2654,7 +2654,7 @@ class CMDShowStats(ApiCall):
 # noinspection PyAbstractClass
 class CMDShowUpdate(ApiCall):
     _help = {
-        "desc": "Update a show in SickChill",
+        "desc": "Update a show in TeeVee",
         "requiredParameters": {
             "indexerid": {"desc": "Unique ID of a show"},
         },
@@ -2668,7 +2668,7 @@ class CMDShowUpdate(ApiCall):
         self.indexerid, args = self.check_params(args, kwargs, "indexerid", None, True, "int", [])
 
     def run(self):
-        """Update a show in SickChill"""
+        """Update a show in TeeVee"""
         error, show = Show.update(self.indexerid, True)
         if error:
             _responds(RESULT_FAILURE, msg=f"Unable to update {show.name}")
@@ -2679,7 +2679,7 @@ class CMDShowUpdate(ApiCall):
 # noinspection PyAbstractClass
 class CMDShows(ApiCall):
     _help = {
-        "desc": "Get all shows in SickChill",
+        "desc": "Get all shows in TeeVee",
         "optionalParameters": {
             "sort": {"desc": "The sorting strategy to apply to the list of shows"},
             "paused": {"desc": "True: show paused, False: show un-paused, otherwise show all"},
@@ -2692,7 +2692,7 @@ class CMDShows(ApiCall):
         self.paused, args = self.check_params(args, kwargs, "paused", None, False, "bool", [])
 
     def run(self):
-        """Get all shows in SickChill"""
+        """Get all shows in TeeVee"""
         shows = {}
         for curShow in settings.show_list:
             # If self.paused is None: show all, 0: show un-paused, 1: show paused
@@ -2774,27 +2774,27 @@ function_mapper = {
     "backlog": CMDBacklog,
     "logs": CMDLogs,
     "logs.clear": CMDLogsClear,
-    "sc": CMDSickChill,
-    "sc.addrootdir": CMDSickChillAddRootDir,
-    "sc.checkversion": CMDSickChillCheckVersion,
-    "sc.backup": CMDSickChillBackup,
-    "sc.checkscheduler": CMDSickChillCheckScheduler,
-    "sc.deleterootdir": CMDSickChillDeleteRootDir,
-    "sc.getdefaults": CMDSickChillGetDefaults,
-    "sc.getmessages": CMDSickChillGetMessages,
-    "sc.getrootdirs": CMDSickChillGetRootDirs,
-    "sc.pausebacklog": CMDSickChillPauseBacklog,
-    "sc.ping": CMDSickChillPing,
-    "sc.restart": CMDSickChillRestart,
+    "sc": CMDTeeVee,
+    "sc.addrootdir": CMDTeeVeeAddRootDir,
+    "sc.checkversion": CMDTeeVeeCheckVersion,
+    "sc.backup": CMDTeeVeeBackup,
+    "sc.checkscheduler": CMDTeeVeeCheckScheduler,
+    "sc.deleterootdir": CMDTeeVeeDeleteRootDir,
+    "sc.getdefaults": CMDTeeVeeGetDefaults,
+    "sc.getmessages": CMDTeeVeeGetMessages,
+    "sc.getrootdirs": CMDTeeVeeGetRootDirs,
+    "sc.pausebacklog": CMDTeeVeePauseBacklog,
+    "sc.ping": CMDTeeVeePing,
+    "sc.restart": CMDTeeVeeRestart,
     "sc.dailysearch": CMDDailySearch,
     "sc.propersearch": CMDProperSearch,
     "sc.subtitlesearch": CMDFullSubtitleSearch,
-    "sc.searchindexers": CMDSickChillSearchIndexers,
-    "sc.searchtvdb": CMDSickChillSearchTVDB,
-    "sc.searchtvrage": CMDSickChillSearchTVRAGE,
-    "sc.setdefaults": CMDSickChillSetDefaults,
-    "sc.update": CMDSickChillUpdate,
-    "sc.shutdown": CMDSickChillShutdown,
+    "sc.searchindexers": CMDTeeVeeSearchIndexers,
+    "sc.searchtvdb": CMDTeeVeeSearchTVDB,
+    "sc.searchtvrage": CMDTeeVeeSearchTVRAGE,
+    "sc.setdefaults": CMDTeeVeeSetDefaults,
+    "sc.update": CMDTeeVeeUpdate,
+    "sc.shutdown": CMDTeeVeeShutdown,
     "show": CMDShow,
     "show.addexisting": CMDShowAddExisting,
     "show.addnew": CMDShowAddNew,
@@ -2815,25 +2815,25 @@ function_mapper = {
     "shows": CMDShows,
     "shows.stats": CMDShowsStats,
     # Compatibility with old 3rd party tools
-    "sb": CMDSickChill,
-    "sb.addrootdir": CMDSickChillAddRootDir,
-    "sb.checkversion": CMDSickChillCheckVersion,
-    "sb.backup": CMDSickChillBackup,
-    "sb.checkscheduler": CMDSickChillCheckScheduler,
-    "sb.deleterootdir": CMDSickChillDeleteRootDir,
-    "sb.getdefaults": CMDSickChillGetDefaults,
-    "sb.getmessages": CMDSickChillGetMessages,
-    "sb.getrootdirs": CMDSickChillGetRootDirs,
-    "sb.pausebacklog": CMDSickChillPauseBacklog,
-    "sb.ping": CMDSickChillPing,
-    "sb.restart": CMDSickChillRestart,
+    "sb": CMDTeeVee,
+    "sb.addrootdir": CMDTeeVeeAddRootDir,
+    "sb.checkversion": CMDTeeVeeCheckVersion,
+    "sb.backup": CMDTeeVeeBackup,
+    "sb.checkscheduler": CMDTeeVeeCheckScheduler,
+    "sb.deleterootdir": CMDTeeVeeDeleteRootDir,
+    "sb.getdefaults": CMDTeeVeeGetDefaults,
+    "sb.getmessages": CMDTeeVeeGetMessages,
+    "sb.getrootdirs": CMDTeeVeeGetRootDirs,
+    "sb.pausebacklog": CMDTeeVeePauseBacklog,
+    "sb.ping": CMDTeeVeePing,
+    "sb.restart": CMDTeeVeeRestart,
     "sb.dailysearch": CMDDailySearch,
     "sb.propersearch": CMDProperSearch,
     "sb.subtitlesearch": CMDFullSubtitleSearch,
-    "sb.searchindexers": CMDSickChillSearchIndexers,
-    "sb.searchtvdb": CMDSickChillSearchTVDB,
-    "sb.searchtvrage": CMDSickChillSearchTVRAGE,
-    "sb.setdefaults": CMDSickChillSetDefaults,
-    "sb.update": CMDSickChillUpdate,
-    "sb.shutdown": CMDSickChillShutdown,
+    "sb.searchindexers": CMDTeeVeeSearchIndexers,
+    "sb.searchtvdb": CMDTeeVeeSearchTVDB,
+    "sb.searchtvrage": CMDTeeVeeSearchTVRAGE,
+    "sb.setdefaults": CMDTeeVeeSetDefaults,
+    "sb.update": CMDTeeVeeUpdate,
+    "sb.shutdown": CMDTeeVeeShutdown,
 }

@@ -54,7 +54,7 @@ class Notifier(object):
 
         return False
 
-    def _notify_kodi(self, message, title="SickChill", hosts=None, username=None, password=None, force=False, dest_app="KODI"):
+    def _notify_kodi(self, message, title="TeeVee", hosts=None, username=None, password=None, force=False, dest_app="KODI"):
         """Internal wrapper for the notify_snatch and notify_download functions
 
         Detects JSON-RPC version then branches the logic for either the JSON-RPC or legacy HTTP API methods.
@@ -255,4 +255,4 @@ class Notifier(object):
             self._notify_kodi(update_text.format(ipaddress), title)
 
     def test_notify(self, host, username, password):
-        return self._notify_kodi("Testing KODI notifications from SickChill", "Test Notification", hosts=host, username=username, password=password, force=True)
+        return self._notify_kodi("Testing KODI notifications from TeeVee", "Test Notification", hosts=host, username=username, password=password, force=True)

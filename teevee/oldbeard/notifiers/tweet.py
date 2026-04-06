@@ -44,7 +44,7 @@ class Notifier(object):
 
         :return: True if succeeded, False otherwise
         """
-        return self._notify_twitter("This is a test notification from SickChill", force=True)
+        return self._notify_twitter("This is a test notification from TeeVee", force=True)
 
     def _get_authorization(self):
         """

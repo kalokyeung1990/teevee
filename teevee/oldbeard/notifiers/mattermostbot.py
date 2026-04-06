@@ -9,7 +9,7 @@ from teevee.oldbeard import common
 
 class Notifier(object):
     MATTERMOSTBOT_POST_URI = "/api/v4/posts"
-    MATTERMOSTBOT_ICON_URL = "https://github.com/SickChill/SickChill/raw/master/sickchill/gui/slick/images/sickchill-sc.png"
+    MATTERMOSTBOT_ICON_URL = "https://github.com/TeeVee/TeeVee/raw/master/sickchill/gui/slick/images/sickchill-sc.png"
 
     def notify_snatch(self, ep_name):
         if settings.MATTERMOSTBOT_NOTIFY_SNATCH:
@@ -66,7 +66,7 @@ class Notifier(object):
             color = "#ff0000"
             pretext = "Type: " + tmsg
 
-        payload = {"channel_id": settings.MATTERMOSTBOT_CHANNEL, "message": "SickChill Work", "props": {"attachments": []}}
+        payload = {"channel_id": settings.MATTERMOSTBOT_CHANNEL, "message": "TeeVee Work", "props": {"attachments": []}}
         payload["channel_id"] = settings.MATTERMOSTBOT_CHANNEL
         payload["props"]["attachments"] = []
         payload["props"]["attachments"].append({"pretext": pretext, "author_name": mattermostbot_author, "color": color, "fields": {}})

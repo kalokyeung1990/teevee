@@ -9,7 +9,7 @@ class Notifier(object):
 
     def test_notify(self, pushalot_authorizationtoken):
         return self._sendPushalot(
-            pushalot_authorizationtoken=pushalot_authorizationtoken, event="Test", message="Testing Pushalot settings from SickChill", force=True
+            pushalot_authorizationtoken=pushalot_authorizationtoken, event="Test", message="Testing Pushalot settings from TeeVee", force=True
         )
 
     def notify_snatch(self, ep_name):

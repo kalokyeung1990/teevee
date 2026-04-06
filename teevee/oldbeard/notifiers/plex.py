@@ -14,8 +14,8 @@ class Notifier(object):
     def __init__(self):
         self.headers = CaseInsensitiveDict(
             {
-                "X-Plex-Device-Name": "SickChill",
-                "X-Plex-Product": "SickChill Notifier",
+                "X-Plex-Device-Name": "TeeVee",
+                "X-Plex-Product": "TeeVee Notifier",
                 "X-Plex-Client-Identifier": USER_AGENT,
                 "X-Plex-Version": "2016.02.10",
             }
@@ -23,7 +23,7 @@ class Notifier(object):
         self.session = make_session()
 
     @staticmethod
-    def _notify_pht(message, title="SickChill", host=None, username=None, password=None, force=False):
+    def _notify_pht(message, title="TeeVee", host=None, username=None, password=None, force=False):
         """Internal wrapper for the notify_snatch and notify_download functions
 
         Args:
@@ -83,7 +83,7 @@ class Notifier(object):
                 self._notify_pht(update_text.format(ipaddress), title)
 
     def test_notify_pht(self, host, username, password):
-        return self._notify_pht("This is a test notification from SickChill", "Test Notification", host, username, password, force=True)
+        return self._notify_pht("This is a test notification from TeeVee", "Test Notification", host, username, password, force=True)
 
     def test_notify_pms(self, host, username, password, plex_server_token):
         return self.update_library(host=host, username=username, password=password, plex_server_token=plex_server_token, force=True)

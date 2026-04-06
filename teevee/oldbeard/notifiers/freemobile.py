@@ -18,7 +18,7 @@ from teevee.oldbeard.common import (
 
 class Notifier(object):
     def test_notify(self, cust_id=None, apiKey=None):
-        return self._notifyFreeMobile("Test", "This is a test notification from SickChill", cust_id, apiKey, force=True)
+        return self._notifyFreeMobile("Test", "This is a test notification from TeeVee", cust_id, apiKey, force=True)
 
     @staticmethod
     def _sendFreeMobileSMS(title, msg, cust_id=None, apiKey=None):

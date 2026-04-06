@@ -3,12 +3,12 @@ import os.path
 import sys
 
 import servicemanager
-import SickChill
+import TeeVee
 import win32service
 import win32serviceutil
 
 
-class SickChillService(win32serviceutil.ServiceFramework):
+class TeeVeeService(win32serviceutil.ServiceFramework):
     _svc_name_ = "sickchill"
     _svc_display_name_ = "sickchill service"
     _svc_description_ = "Runs sickchill web service in the background."
@@ -23,7 +23,7 @@ class SickChillService(win32serviceutil.ServiceFramework):
             self.proc.terminate()
 
     def SvcRun(self):
-        self.proc = multiprocessing.Process(target=SickChill.main)
+        self.proc = multiprocessing.Process(target=TeeVee.main)
         self.proc.start()
         self.ReportServiceStatus(win32service.SERVICE_RUNNING)
         self.SvcDoRun()
@@ -40,13 +40,13 @@ if __name__ == "__main__":
             import win32traceutil
 
             servicemanager.Initialize()
-            servicemanager.PrepareToHostSingle(SickChillService)
+            servicemanager.PrepareToHostSingle(TeeVeeService)
             servicemanager.StartServiceCtrlDispatcher()
         elif "--fg" in sys.argv:
             sys.argv.remove("--fg")
-            SickChill.main()
+            TeeVee.main()
         else:
-            win32serviceutil.HandleCommandLine(SickChillService)
+            win32serviceutil.HandleCommandLine(TeeVeeService)
     except (SystemExit, KeyboardInterrupt):
         raise
     except Exception:

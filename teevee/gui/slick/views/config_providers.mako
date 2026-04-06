@@ -458,7 +458,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <label for="${provider.get_id("_ratio")}">${_('stop transfer when ratio is reached<br>(-1 SickChill default to seed forever, or leave blank for downloader default)')}</label>
+                                                    <label for="${provider.get_id("_ratio")}">${_('stop transfer when ratio is reached<br>(-1 TeeVee default to seed forever, or leave blank for downloader default)')}</label>
                                                 </div>
                                             </div>
                                         </div>

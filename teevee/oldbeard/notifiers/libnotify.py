@@ -24,7 +24,7 @@ class Notifier(object):
     def __init__(self):
         self.notify_initialized = None
         if Notify:
-            self.notify_initialized = Notify.init("SickChill")
+            self.notify_initialized = Notify.init("TeeVee")
 
     @staticmethod
     def diagnose():
@@ -42,7 +42,7 @@ class Notifier(object):
         if "DISPLAY" not in os.environ and "DBUS_SESSION_BUS_ADDRESS" not in os.environ:
             return (
                 "<p>Error: Environment variables DISPLAY and DBUS_SESSION_BUS_ADDRESS "
-                "aren't set.  libnotify will only work when you run SickChill "
+                "aren't set.  libnotify will only work when you run TeeVee "
                 "from a desktop login."
             )
 
@@ -55,7 +55,7 @@ class Notifier(object):
             try:
                 bus = dbus.SessionBus()
             except dbus.DBusException as error:
-                return f"<p>Error: unable to connect to D-Bus session bus: <code>{html.escape(error)}</code>.<p>Are you running SickChill in a desktop session?"
+                return f"<p>Error: unable to connect to D-Bus session bus: <code>{html.escape(error)}</code>.<p>Are you running TeeVee in a desktop session?"
             try:
                 bus.get_object("org.freedesktop.Notifications", "/org/freedesktop/Notifications")
             except dbus.DBusException as error:
@@ -88,7 +88,7 @@ class Notifier(object):
             self._notify(title, update_text.format(ipaddress))
 
     def test_notify(self):
-        return self._notify("Test notification", "This is a test notification from SickChill", force=True)
+        return self._notify("Test notification", "This is a test notification from TeeVee", force=True)
 
     def _notify(self, title, message, force=False):
         if not settings.USE_LIBNOTIFY and not force:

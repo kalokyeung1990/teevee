@@ -13,11 +13,11 @@ class Notifier(object):
         self.last_err = None
 
     def test_notify(self, host, port, smtp_from, use_tls, user, pwd, to):
-        msg = MIMEText("This is a test message from SickChill.  If you're reading this, the test succeeded.")
+        msg = MIMEText("This is a test message from TeeVee.  If you're reading this, the test succeeded.")
         if settings.EMAIL_SUBJECT:
             msg["Subject"] = "[TEST] " + settings.EMAIL_SUBJECT
         else:
-            msg["Subject"] = "SickChill: Test Message"
+            msg["Subject"] = "TeeVee: Test Message"
 
         msg["From"] = smtp_from
         msg["To"] = to
@@ -41,19 +41,19 @@ class Notifier(object):
                     msg = MIMEMultipart("alternative")
                     msg.attach(
                         MIMEText(
-                            "SickChill Notification - Snatched\n"
+                            "TeeVee Notification - Snatched\n"
                             "Show: {0}\nEpisode Number: {1}\nEpisode: {2}\nQuality: {3}\n\n"
-                            "Powered by SickChill.".format(show[0], show[1], show[2], show[3])
+                            "Powered by TeeVee.".format(show[0], show[1], show[2], show[3])
                         )
                     )
                     msg.attach(
                         MIMEText(
                             '<body style="font-family:Helvetica, Arial, sans-serif;">'
-                            "<h3>SickChill Notification - Snatched</h3>"
+                            "<h3>TeeVee Notification - Snatched</h3>"
                             "<p>Show: <b>{0}</b></p><p>Episode Number: <b>{1}</b></p><p>Episode: <b>{2}</b></p><p>Quality: <b>{3}</b></p>"
                             '<h5 style="margin-top: 2.5em; padding: .7em 0; '
                             'color: #777; border-top: #BBB solid 1px;">'
-                            "Powered by SickChill.</h5></body>".format(show[0], show[1], show[2], show[3]),
+                            "Powered by TeeVee.</h5></body>".format(show[0], show[1], show[2], show[3]),
                             "html",
                         )
                     )
@@ -95,19 +95,19 @@ class Notifier(object):
                     msg = MIMEMultipart("alternative")
                     msg.attach(
                         MIMEText(
-                            "SickChill Notification - Downloaded\n"
+                            "TeeVee Notification - Downloaded\n"
                             "Show: {0}\nEpisode Number: {1}\nEpisode: {2}\nQuality: {3}\n\n"
-                            "Powered by SickChill.".format(show[0], show[1], show[2], show[3])
+                            "Powered by TeeVee.".format(show[0], show[1], show[2], show[3])
                         )
                     )
                     msg.attach(
                         MIMEText(
                             '<body style="font-family:Helvetica, Arial, sans-serif;">'
-                            "<h3>SickChill Notification - Downloaded</h3>"
+                            "<h3>TeeVee Notification - Downloaded</h3>"
                             "<p>Show: <b>{0}</b></p><p>Episode Number: <b>{1}</b></p><p>Episode: <b>{2}</b></p><p>Quality: <b>{3}</b></p>"
                             '<h5 style="margin-top: 2.5em; padding: .7em 0; '
                             'color: #777; border-top: #BBB solid 1px;">'
-                            "Powered by SickChill.</h5></body>".format(show[0], show[1], show[2], show[3]),
+                            "Powered by TeeVee.</h5></body>".format(show[0], show[1], show[2], show[3]),
                             "html",
                         )
                     )
@@ -149,19 +149,19 @@ class Notifier(object):
                     msg = MIMEMultipart("alternative")
                     msg.attach(
                         MIMEText(
-                            "SickChill Notification - Postprocessed\n"
+                            "TeeVee Notification - Postprocessed\n"
                             "Show: {0}\nEpisode Number: {1}\nEpisode: {2}\nQuality: {3}\n\n"
-                            "Powered by SickChill.".format(show[0], show[1], show[2], show[3])
+                            "Powered by TeeVee.".format(show[0], show[1], show[2], show[3])
                         )
                     )
                     msg.attach(
                         MIMEText(
                             '<body style="font-family:Helvetica, Arial, sans-serif;">'
-                            "<h3>SickChill Notification - Postprocessed</h3>"
+                            "<h3>TeeVee Notification - Postprocessed</h3>"
                             "<p>Show: <b>{0}</b></p><p>Episode Number: <b>{1}</b></p><p>Episode: <b>{2}</b></p><p>Quality: <b>{3}</b></p>"
                             '<h5 style="margin-top: 2.5em; padding: .7em 0; '
                             'color: #777; border-top: #BBB solid 1px;">'
-                            "Powered by SickChill.</h5></body>".format(show[0], show[1], show[2], show[3]),
+                            "Powered by TeeVee.</h5></body>".format(show[0], show[1], show[2], show[3]),
                             "html",
                         )
                     )
@@ -203,21 +203,21 @@ class Notifier(object):
                     msg = MIMEMultipart("alternative")
                     msg.attach(
                         MIMEText(
-                            "SickChill Notification - Subtitle Downloaded\n"
+                            "TeeVee Notification - Subtitle Downloaded\n"
                             "Show: {0}\nEpisode Number: {1}\nEpisode: {2}\n"
                             "Language: {3}\n\n"
-                            "Powered by SickChill.".format(show[0], show[1], show[2], lang)
+                            "Powered by TeeVee.".format(show[0], show[1], show[2], lang)
                         )
                     )
                     msg.attach(
                         MIMEText(
                             '<body style="font-family:Helvetica, Arial, sans-serif;">'
-                            "<h3>SickChill Notification - Subtitle Downloaded</h3>"
+                            "<h3>TeeVee Notification - Subtitle Downloaded</h3>"
                             "<p>Show: <b>{0}</b></p><p>Episode Number: <b>{1}</b></p><p>Episode: <b>{2}</b></p></p>"
                             "<p>Language: <b>{3}</b></p>"
                             '<h5 style="margin-top: 2.5em; padding: .7em 0; '
                             'color: #777; border-top: #BBB solid 1px;">'
-                            "Powered by SickChill.</h5></body>".format(show[0], show[1], show[2], lang),
+                            "Powered by TeeVee.</h5></body>".format(show[0], show[1], show[2], lang),
                             "html",
                         )
                     )
@@ -242,8 +242,8 @@ class Notifier(object):
 
     def notify_update(self, new_version="??"):
         """
-        Send a notification that SickChill was updated
-        new_version: The version SickChill was updated to
+        Send a notification that TeeVee was updated
+        new_version: The version TeeVee was updated to
         """
         if settings.USE_EMAIL:
             to = self._generate_recipients(None)
@@ -252,15 +252,15 @@ class Notifier(object):
             else:
                 try:
                     msg = MIMEMultipart("alternative")
-                    msg.attach(MIMEText("SickChill Notification - Updated\n" "Version: {}\n\n" "Powered by SickChill.".format(new_version)))
+                    msg.attach(MIMEText("TeeVee Notification - Updated\n" "Version: {}\n\n" "Powered by TeeVee.".format(new_version)))
                     msg.attach(
                         MIMEText(
                             '<body style="font-family:Helvetica, Arial, sans-serif;">'
-                            "<h3>SickChill Notification - Updated</h3><br>"
+                            "<h3>TeeVee Notification - Updated</h3><br>"
                             "<p>Version: <b>{}</b></p><br><br>"
                             '<footer style="margin-top: 2.5em; padding: .7em 0; '
                             'color: #777; border-top: #BBB solid 1px;">'
-                            "Powered by SickChill.</footer></body>".format(new_version),
+                            "Powered by TeeVee.</footer></body>".format(new_version),
                             "html",
                         )
                     )
@@ -269,7 +269,7 @@ class Notifier(object):
                     try:
                         msg = MIMEText(new_version)
                     except Exception:
-                        msg = MIMEText("SickChill updated")
+                        msg = MIMEText("TeeVee updated")
 
                 msg["Subject"] = "Updated: {0}".format(new_version)
                 msg["From"] = settings.EMAIL_FROM
@@ -284,8 +284,8 @@ class Notifier(object):
 
     def notify_login(self, ipaddress=""):
         """
-        Send a notification that SickChill was logged into remotely
-        ipaddress: The ip SickChill was logged into from
+        Send a notification that TeeVee was logged into remotely
+        ipaddress: The ip TeeVee was logged into from
         """
         if settings.USE_EMAIL:
             to = self._generate_recipients(None)
@@ -294,15 +294,15 @@ class Notifier(object):
             else:
                 try:
                     msg = MIMEMultipart("alternative")
-                    msg.attach(MIMEText("SickChill Notification - Remote Login\n" "New login from IP: {0}\n\n" "Powered by SickChill.".format(ipaddress)))
+                    msg.attach(MIMEText("TeeVee Notification - Remote Login\n" "New login from IP: {0}\n\n" "Powered by TeeVee.".format(ipaddress)))
                     msg.attach(
                         MIMEText(
                             '<body style="font-family:Helvetica, Arial, sans-serif;">'
-                            "<h3>SickChill Notification - Remote Login</h3><br>"
+                            "<h3>TeeVee Notification - Remote Login</h3><br>"
                             '<p>New login from IP: <a href="http://geomaplookup.net/?ip={0}">{0}</a>.<br><br>'
                             '<footer style="margin-top: 2.5em; padding: .7em 0; '
                             'color: #777; border-top: #BBB solid 1px;">'
-                            "Powered by SickChill.</footer></body>".format(ipaddress),
+                            "Powered by TeeVee.</footer></body>".format(ipaddress),
                             "html",
                         )
                     )
@@ -311,7 +311,7 @@ class Notifier(object):
                     try:
                         msg = MIMEText(ipaddress)
                     except Exception:
-                        msg = MIMEText("SickChill Remote Login")
+                        msg = MIMEText("TeeVee Remote Login")
 
                 msg["Subject"] = "New Login from IP: {0}".format(ipaddress)
                 msg["From"] = settings.EMAIL_FROM

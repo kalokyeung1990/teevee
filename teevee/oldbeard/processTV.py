@@ -132,7 +132,7 @@ def process_dir(process_path, release_name=None, process_method=None, force=Fals
             process_path = os.path.realpath(process_path)
             result.output += log_helper(f"Processing in folder {process_path}", logger.DEBUG)
 
-        # if the client and SickChill are not on the same machine translate the directory into a network directory
+        # if the client and TeeVee are not on the same machine translate the directory into a network directory
         elif all(
             [
                 settings.TV_DOWNLOAD_DIR,
@@ -147,7 +147,7 @@ def process_dir(process_path, release_name=None, process_method=None, force=Fals
         if not Path(process_path).is_dir():
             result.output += log_helper(
                 "Unable to figure out what folder to process. "
-                "If your downloader and SickChill aren't on the same PC "
+                "If your downloader and TeeVee aren't on the same PC "
                 "make sure you fill out your TV download dir in the config.",
                 logger.DEBUG,
             )

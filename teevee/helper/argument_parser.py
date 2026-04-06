@@ -3,15 +3,15 @@ import sys
 from argparse import ArgumentParser, SUPPRESS
 
 
-class SickChillArgumentParser:
+class TeeVeeArgumentParser:
     def __init__(self, data_dir, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.data_dir = data_dir
         self.parser = ArgumentParser()
 
-        self.parser.description = """SickChill is an automatic tv library manager. It handles searching, sending to your download client, organizing, renaming,
+        self.parser.description = """TeeVee is an automatic tv library manager. It handles searching, sending to your download client, organizing, renaming,
         and adding images and metadata. It handles it all (with a little bit of magic) so you don't have to.
-        (c) 2017 SickChill
+        (c) 2017 TeeVee
         """
 
         self.parser.add_argument("-q", "--quiet", action="store_true", help="disable logging to the console")

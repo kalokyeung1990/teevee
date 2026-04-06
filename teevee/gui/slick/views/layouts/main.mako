@@ -36,7 +36,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="mobile-web-app-capable" content="yes">
 
-        <title>SickChill - ${title}</title>
+        <title>TeeVee - ${title}</title>
 
         <!--[if lt IE 9]>
             <script src="${static_url('js/html5shiv.min.js')}"></script>
@@ -139,7 +139,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="${static_url('home/', include_version=False)}" title="SickChill"><img alt="SickChill" src="${static_url('images/sickchill.png')}"
+                    <a class="navbar-brand" href="${static_url('home/', include_version=False)}" title="TeeVee"><img alt="TeeVee" src="${static_url('images/sickchill.png')}"
                                                                                  class="img-responsive pull-left" /></a>
                 </div>
                 % if current_user:

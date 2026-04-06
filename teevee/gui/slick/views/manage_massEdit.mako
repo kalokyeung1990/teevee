@@ -154,7 +154,7 @@
                             <option value="enable" ${('', 'selected')[paused_value == 1]}>${_('Yes')}</option>
                             <option value="disable" ${('', 'selected')[paused_value == 0]}>${_('No')}</option>
                         </select>
-                        <label for="edit_paused">${_('Pause these shows (SickChill will not download episodes).')}</label>
+                        <label for="edit_paused">${_('Pause these shows (TeeVee will not download episodes).')}</label>
                     </div>
                 </div>
 

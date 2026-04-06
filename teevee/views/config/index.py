@@ -51,8 +51,8 @@ class Config(WebRoot):
 
         return t.render(
             submenu=self.ConfigMenu(),
-            title=_("SickChill Configuration"),
-            header=_("SickChill Configuration"),
+            title=_("TeeVee Configuration"),
+            header=_("TeeVee Configuration"),
             topmenu="config",
             sc_user=sc_user,
             sc_locale=sc_locale,

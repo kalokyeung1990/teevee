@@ -155,7 +155,7 @@
                                         </div>
                                         <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12 component-desc">
                                             <input type="checkbox" id="subtitles_sc_metadata" name="subtitles_sc_metadata" ${checked(show.subtitles_sc_metadata)} />
-                                            <label for="subtitles_sc_metadata">${_('use SickChill metadata when searching for subtitle, this will override the autodiscovered metadata')}</label>
+                                            <label for="subtitles_sc_metadata">${_('use TeeVee metadata when searching for subtitle, this will override the autodiscovered metadata')}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -166,7 +166,7 @@
                                     </div>
                                     <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12 component-desc">
                                         <input type="checkbox" id="paused" name="paused" ${checked(show.paused)}  title="paused" />
-                                        <label for="paused">${_('pause this show (SickChill will not download episodes)')}</label>
+                                        <label for="paused">${_('pause this show (TeeVee will not download episodes)')}</label>
                                     </div>
                                 </div>
 

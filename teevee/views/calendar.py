@@ -32,9 +32,9 @@ class CalendarHandler(BaseHandler):
         # Create a iCal string
         ical = "BEGIN:VCALENDAR\r\n"
         ical += "VERSION:2.0\r\n"
-        ical += "X-WR-CALNAME:SickChill\r\n"
-        ical += "X-WR-CALDESC:SickChill\r\n"
-        ical += "PRODID://SickChill Upcoming Episodes//\r\n"
+        ical += "X-WR-CALNAME:TeeVee\r\n"
+        ical += "X-WR-CALDESC:TeeVee\r\n"
+        ical += "PRODID://TeeVee Upcoming Episodes//\r\n"
 
         future_weeks = try_int(self.get_argument("future", "52"), 52)
         past_weeks = try_int(self.get_argument("past", "52"), 52)
@@ -69,7 +69,7 @@ class CalendarHandler(BaseHandler):
                     ical += "X-GOOGLE-CALENDAR-CONTENT-ICON:https://sickchill.github.io/images/ico/favicon-16.png\r\n"
                     ical += "X-GOOGLE-CALENDAR-CONTENT-DISPLAY:CHIP\r\n"
                 ical += f'SUMMARY: {show["show_name"]} - {episode["season"]}x{episode["episode"]} - {episode["name"]}\r\n'
-                ical += f'UID:SickChill-{datetime.date.today().isoformat()}-{show["show_name"].replace(" ", "-")}-S{episode["season"]}E{episode["episode"]}\r\n'
+                ical += f'UID:TeeVee-{datetime.date.today().isoformat()}-{show["show_name"].replace(" ", "-")}-S{episode["season"]}E{episode["episode"]}\r\n'
                 ical += f'DESCRIPTION:{show["airs"] or "(Unknown airs)"} on {show["network"] or "Unknown network"}'
                 if episode["description"]:
                     ical += f' \\n\\n {episode["description"].splitlines()[0]}'

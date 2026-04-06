@@ -9,8 +9,8 @@ class Notifier(object):
         self.session = helpers.make_session()
         self.url = "https://new.boxcar.io/api/notifications"
 
-    def test_notify(self, accesstoken, title="SickChill : Test"):
-        return self._sendBoxcar2("This is a test notification from SickChill", title, accesstoken)
+    def test_notify(self, accesstoken, title="TeeVee : Test"):
+        return self._sendBoxcar2("This is a test notification from TeeVee", title, accesstoken)
 
     def _sendBoxcar2(self, msg, title, accesstoken):
         """
@@ -26,10 +26,10 @@ class Notifier(object):
 
         post_data = {
             "user_credentials": accesstoken,
-            "notification[title]": "SickChill : {0}: {1}".format(title, msg),
+            "notification[title]": "TeeVee : {0}: {1}".format(title, msg),
             "notification[long_message]": msg,
             "notification[sound]": "notifier-2",
-            "notification[source_name]": "SickChill",
+            "notification[source_name]": "TeeVee",
             "notification[icon_url]": settings.LOGO_URL,
         }
 

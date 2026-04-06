@@ -713,7 +713,7 @@ def create_https_certificates(ssl_cert, ssl_key):
     params["issuerCert"] = createCertificate(**params)
 
     pkey = createKeyPair(TYPE_RSA, 4096)
-    params["req"] = createCertRequest(pkey, CN="SickChill")
+    params["req"] = createCertRequest(pkey, CN="TeeVee")
     cert = createCertificate(**params)
 
     # Save the key and certificate to disk
@@ -917,7 +917,7 @@ def get_show(name, try_indexers=False):
         if show_object and not from_cache:
             teevee.oldbeard.name_cache.add_name(name, show_object.indexerid)
     except Exception as error:
-        logger.debug(_("There was a problem when attempting to find {name} in SickChill. Error: {error}").format(name=name, error=error))
+        logger.debug(_("There was a problem when attempting to find {name} in TeeVee. Error: {error}").format(name=name, error=error))
         logger.debug(traceback.format_exc())
 
     return show_object

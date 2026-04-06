@@ -9,7 +9,7 @@ from teevee.oldbeard import common
 
 class Notifier(object):
     MATTERMOST_WEBHOOK_URL = ""
-    MATTERMOST_ICON_URL = "https://github.com/SickChill/SickChill/raw/master/sickchill/gui/slick/images/sickchill-sc.png"
+    MATTERMOST_ICON_URL = "https://github.com/TeeVee/TeeVee/raw/master/sickchill/gui/slick/images/sickchill-sc.png"
 
     def notify_snatch(self, ep_name):
         if settings.MATTERMOST_NOTIFY_SNATCH:
@@ -36,7 +36,7 @@ class Notifier(object):
             self._notify_mattermost(title + " - " + update_text.format(ipaddress))
 
     def test_notify(self):
-        return self._notify_mattermost("This is a test notification from SickChill", force=True)
+        return self._notify_mattermost("This is a test notification from TeeVee", force=True)
 
     def _send_mattermost(self, message=None):
         mattermost_webhook = self.MATTERMOST_WEBHOOK_URL + settings.MATTERMOST_WEBHOOK.replace(self.MATTERMOST_WEBHOOK_URL, "")

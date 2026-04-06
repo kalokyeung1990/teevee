@@ -834,7 +834,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label><b>${_('note')}:</b>&nbsp;${_('requires SickChill to be running on your Synology NAS.')}</label>
+                                        <label><b>${_('note')}:</b>&nbsp;${_('requires TeeVee to be running on your Synology NAS.')}</label>
                                     </div>
                                 </div>
                             </div>
@@ -879,7 +879,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label><b>${_('note')}:</b>&nbsp;${_('requires SickChill to be running on your Synology NAS (DSM 6 only).')}</label>
+                                        <label><b>${_('note')}:</b>&nbsp;${_('requires TeeVee to be running on your Synology NAS (DSM 6 only).')}</label>
                                     </div>
                                 </div>
                             </div>
@@ -1113,7 +1113,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <label for="growl_password">${_('may leave blank if SickChill is on the same host.')}</label>
+                                            <label for="growl_password">${_('may leave blank if TeeVee is on the same host.')}</label>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -1281,7 +1281,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <label for="prowl_priority">${_('priority of Prowl messages from SickChill.')}</label>
+                                            <label for="prowl_priority">${_('priority of Prowl messages from TeeVee.')}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -2356,7 +2356,7 @@
 ##                                 <div class="row">
 ##                                     <div class="col-md-12">
 ##                                         <input type="checkbox" class="enabler" name="use_twilio" id="use_twilio" ${checked(settings.USE_TWILIO)}/>
-##                                         <label for="use_twilio">${_('should SickChill text your mobile device?')}</label>
+##                                         <label for="use_twilio">${_('should TeeVee text your mobile device?')}</label>
 ##                                     </div>
 ##                                 </div>
 ##                             </div>
@@ -2508,7 +2508,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <input type="checkbox" class="enabler" name="use_twitter" id="use_twitter" ${checked(settings.USE_TWITTER)}/>
-                                        <label for="use_twitter">${_('should SickChill post tweets on Twitter?')}</label>
+                                        <label for="use_twitter">${_('should TeeVee post tweets on Twitter?')}</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -2688,12 +2688,12 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <label for="trakt_pin">${_('PIN code to authorize SickChill to access Trakt on your behalf.')}</label>
+                                            <label for="trakt_pin">${_('PIN code to authorize TeeVee to access Trakt on your behalf.')}</label>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="button" class="btn hide" value="Authorize SickChill" id="authTrakt" />
+                                            <input type="button" class="btn hide" value="Authorize TeeVee" id="authTrakt" />
                                         </div>
                                     </div>
                                 </div>
@@ -2737,7 +2737,7 @@
                                 </div>
                                 <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12 component-desc">
                                     <input type="checkbox" class="enabler" name="trakt_sync" id="trakt_sync" ${checked(settings.TRAKT_SYNC)}/>
-                                    <label for="trakt_sync">${_('sync your SickChill show library with your trakt show library.')}</label>
+                                    <label for="trakt_sync">${_('sync your TeeVee show library with your trakt show library.')}</label>
                                 </div>
                             </div>
 
@@ -2749,7 +2749,7 @@
                                     </div>
                                     <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12 component-desc">
                                         <input type="checkbox" name="trakt_sync_remove" id="trakt_sync_remove" ${checked(settings.TRAKT_SYNC_REMOVE)}/>
-                                        <label for="trakt_sync_remove">${_('remove an episode from your Trakt Collection if it is not in your SickChill Library.')}</label>
+                                        <label for="trakt_sync_remove">${_('remove an episode from your Trakt Collection if it is not in your TeeVee Library.')}</label>
                                     </div>
                                 </div>
 
@@ -2763,7 +2763,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <input type="checkbox" class="enabler" name="trakt_sync_watchlist" id="trakt_sync_watchlist" ${checked(settings.TRAKT_SYNC_WATCHLIST)}/>
-                                            <label for="trakt_sync_watchlist">${_('sync your SickChill show watchlist with your trakt show watchlist (either Show and Episode).')}</label>
+                                            <label for="trakt_sync_watchlist">${_('sync your TeeVee show watchlist with your trakt show watchlist (either Show and Episode).')}</label>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -3075,7 +3075,7 @@
                                         <div class="col-md-12">
                                             <label for="email_subject">
                                                 ${_('use a custom subject for some privacy protection?')}<br>
-                                                ${_('(leave blank for the default SickChill subject)')}
+                                                ${_('(leave blank for the default TeeVee subject)')}
                                             </label>
                                         </div>
                                     </div>
@@ -3156,7 +3156,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <input type="checkbox" class="enabler" name="use_slack" id="use_slack" ${checked(settings.USE_SLACK)}/>
-                                        <label for="use_slack">${_('should SickChill post messages on Slack?')}</label>
+                                        <label for="use_slack">${_('should TeeVee post messages on Slack?')}</label>
                                     </div>
                                 </div>
                             </div>
@@ -3252,7 +3252,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <input type="checkbox" class="enabler" name="use_mattermost" id="use_mattermost" ${checked(settings.USE_MATTERMOST)}/>
-                                        <label for="use_mattermost">${_('should SickChill post messages on Mattermost?')}</label>
+                                        <label for="use_mattermost">${_('should TeeVee post messages on Mattermost?')}</label>
                                     </div>
                                 </div>
                             </div>
@@ -3357,7 +3357,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <input type="checkbox" class="enabler" name="use_mattermostbot" id="use_mattermostbot" ${checked(settings.USE_MATTERMOSTBOT)}/>
-                                        <label for="use_mattermostbot">${_('should SickChill post messages on Mattermost Bot?')}</label>
+                                        <label for="use_mattermostbot">${_('should TeeVee post messages on Mattermost Bot?')}</label>
                                     </div>
                                 </div>
                             </div>
@@ -3479,7 +3479,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <input type="checkbox" class="enabler" name="use_rocketchat" id="use_rocketchat" ${checked(settings.USE_ROCKETCHAT)}/>
-                                        <label for="use_rocketchat">${_('should SickChill post messages on Rocket.Chat?')}</label>
+                                        <label for="use_rocketchat">${_('should TeeVee post messages on Rocket.Chat?')}</label>
                                     </div>
                                 </div>
                             </div>
@@ -3567,7 +3567,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <input type="checkbox" class="enabler" name="use_matrix" id="use_matrix" ${checked(settings.USE_MATRIX)}/>
-                                        <label for="use_matrix">${_('should SickChill post messages on Matrix?')}</label>
+                                        <label for="use_matrix">${_('should TeeVee post messages on Matrix?')}</label>
                                     </div>
                                 </div>
                             </div>
@@ -3688,7 +3688,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <input type="checkbox" class="enabler" name="use_discord" id="use_discord" ${checked(settings.USE_DISCORD)}/>
-                                        <label for="use_discord">${_('Should SickChill post messages on Discord?')}</label>
+                                        <label for="use_discord">${_('Should TeeVee post messages on Discord?')}</label>
                                     </div>
                                 </div>
                             </div>
@@ -3742,7 +3742,7 @@
                                       <input type="text" name="discord_name" id="discord_name" value="${settings.DISCORD_NAME}" class="form-control input-sm input350" autocapitalize="off" />
                                     </div>
                                     <div class="col-md-12">
-                                      <label for="discord_name">${_('Blank and Save will default to SickChill.')}</label>
+                                      <label for="discord_name">${_('Blank and Save will default to TeeVee.')}</label>
                                     </div>
                                   </div>
                                 </div>

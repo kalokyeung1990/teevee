@@ -34,9 +34,9 @@ notifyStrings = NumDict(
         NOTIFY_SNATCH: _("Started Download"),
         NOTIFY_DOWNLOAD: _("Finished Download"),
         NOTIFY_SUBTITLE_DOWNLOAD: _("Subtitle Download Finished"),
-        NOTIFY_UPDATE: _("SickChill Updated"),
-        NOTIFY_UPDATE_TEXT: _("SickChill Updated To Version: "),
-        NOTIFY_LOGIN: _("SickChill new login"),
+        NOTIFY_UPDATE: _("TeeVee Updated"),
+        NOTIFY_UPDATE_TEXT: _("TeeVee Updated To Version: "),
+        NOTIFY_LOGIN: _("TeeVee new login"),
         NOTIFY_LOGIN_TEXT: _("New login from IP: {0}. http://geomaplookup.net/?ip={0}"),
         NOTIFY_POSTPROCESS: _("Finished Post Processing"),
     }
@@ -234,7 +234,7 @@ class Quality(object):
     @staticmethod
     def nameQuality(name, anime=False):
         """
-        Return The quality from an episode File renamed by SickChill
+        Return The quality from an episode File renamed by TeeVee
         If no quality is achieved it will try scene_quality regex
 
         :param name: to parse

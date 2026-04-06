@@ -79,7 +79,7 @@ class DBConnection(object):
 
             # Let's print out all the arguments, so we can debug this better
             logger.info(traceback.format_exc())
-            logger.info(_("If this happened in cache.db, you can safely stop SickChill, and delete the cache.db file without losing any data"))
+            logger.info(_("If this happened in cache.db, you can safely stop TeeVee, and delete the cache.db file without losing any data"))
             logger.info(
                 _("Here are the arguments that were passed to this function (This is what the developers need to know): {local_variables}").format(
                     local_variables=local_variables

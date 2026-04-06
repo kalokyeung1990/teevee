@@ -32,8 +32,8 @@ class UpdateManager(object):
         if self.updater:
             if self.check_for_new_version(force):
                 if settings.AUTO_UPDATE:
-                    logger.info("New update found for SickChill, starting auto-updater ...")
-                    ui.notifications.message(_("New update found for SickChill, starting auto-updater"))
+                    logger.info("New update found for TeeVee, starting auto-updater ...")
+                    ui.notifications.message(_("New update found for TeeVee, starting auto-updater"))
                     if self.run_backup_if_safe():
                         if settings.versionCheckScheduler.action.update():
                             logger.info("Update was successful!")

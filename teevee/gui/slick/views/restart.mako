@@ -21,13 +21,13 @@
         <div class="col-md-12">
             <div class="messages">
                 <div id="shut_down_message">
-                    ${_('Waiting for SickChill to shut down')}:
+                    ${_('Waiting for TeeVee to shut down')}:
                     <span class="loading-spinner16" id="shut_down_loading"></span>
                     <span class="displayshow-icon-enable" id="shut_down_success" style="display: none;"></span>
                 </div>
 
                 <div id="restart_message" style="display: none;">
-                    ${_('Waiting for SickChill to start again')}:
+                    ${_('Waiting for TeeVee to start again')}:
                     <span class="loading-spinner16" id="restart_loading"></span>
                     <span class="displayshow-icon-enable" id="restart_success" style="display: none;"></span>
                     <span class="displayshow-icon-disable" id="restart_failure" style="display: none;"></span>
@@ -39,7 +39,7 @@
                 </div>
 
                 <div id="restart_fail_message" style="display: none;">
-                    ${_('Error: The restart has timed out, perhaps something prevented SickChill from starting again?')}
+                    ${_('Error: The restart has timed out, perhaps something prevented TeeVee from starting again?')}
                 </div>
             </div>
         </div>

@@ -91,7 +91,7 @@ class DiscordTask(generic_queue.QueueItem):
 
         self.embed = {
             "author": {
-                "name": "SickChill",
+                "name": "TeeVee",
                 # 'url':
                 "icon_url": settings.DISCORD_AVATAR_URL,
             },
@@ -141,8 +141,8 @@ class DiscordTask(generic_queue.QueueItem):
             return False
 
         if not discord_name:
-            logger.debug("Discord Bot name blank, forcing to SickChill")
-            discord_name = "SickChill"
+            logger.debug("Discord Bot name blank, forcing to TeeVee")
+            discord_name = "TeeVee"
             settings.DISCORD_NAME = discord_name
 
         if discord_tts == 1:

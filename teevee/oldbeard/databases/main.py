@@ -267,7 +267,7 @@ class InitialSchema(db.SchemaUpgrade):
             if cur_db_version < MIN_DB_VERSION:
                 logger.log_error_and_exit(
                     _(
-                        "Your database version ({cur_db_version}) is too old to migrate from what this version of SickChill supports ({MIN_DB_VERSION}).\nUpgrade using a previous version (tag) build 496 to build 501 of SickChill first or remove database file to begin fresh.".format(
+                        "Your database version ({cur_db_version}) is too old to migrate from what this version of TeeVee supports ({MIN_DB_VERSION}).\nUpgrade using a previous version (tag) build 496 to build 501 of TeeVee first or remove database file to begin fresh.".format(
                             cur_db_version=cur_db_version, MIN_DB_VERSION=MIN_DB_VERSION
                         )
                     )
@@ -276,7 +276,7 @@ class InitialSchema(db.SchemaUpgrade):
             if cur_db_version > MAX_DB_VERSION:
                 logger.log_error_and_exit(
                     _(
-                        "Your database version ({cur_db_version}) has been incremented past what this version of SickChill supports ({MAX_DB_VERSION}).\nIf you have used other forks of SickChill, your database may be unusable due to their modifications.".format(
+                        "Your database version ({cur_db_version}) has been incremented past what this version of TeeVee supports ({MAX_DB_VERSION}).\nIf you have used other forks of TeeVee, your database may be unusable due to their modifications.".format(
                             cur_db_version=cur_db_version, MAX_DB_VERSION=MAX_DB_VERSION
                         )
                     )

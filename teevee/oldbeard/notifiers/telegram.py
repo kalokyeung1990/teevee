@@ -32,7 +32,7 @@ class Notifier(object):
         :param api_key: Your Telegram bot API token
         :returns: the notification
         """
-        return self._notify_telegram("Test", "This is a test notification from SickChill", id, api_key, force=True)
+        return self._notify_telegram("Test", "This is a test notification from TeeVee", id, api_key, force=True)
 
     def _send_telegram_msg(self, title, msg, id=None, api_key=None):
         """

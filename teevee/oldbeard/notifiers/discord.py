@@ -38,7 +38,7 @@ class Notifier(object):
     def test_notify(self, webhook: str = None, name: str = None, avatar: str = None, tts=None):
         from teevee.oldbeard.notifications_queue import DiscordTask
 
-        task = DiscordTask("This is a test notification from SickChill")
+        task = DiscordTask("This is a test notification from TeeVee")
         return task._send_discord(webhook=webhook, name=name, avatar=avatar, tts=tts)
 
     @staticmethod

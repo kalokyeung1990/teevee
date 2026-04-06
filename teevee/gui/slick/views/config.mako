@@ -21,7 +21,7 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <i class="icon16-config-sickchill"></i>&nbsp;&nbsp;SickChill Info:
+                    <i class="icon16-config-sickchill"></i>&nbsp;&nbsp;TeeVee Info:
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                     <div class="row">
@@ -36,7 +36,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 Version:
-                                <a href="${anon_url('https://github.com/SickChill/SickChill/releases/tag/%s' % sc_version)}">
+                                <a href="${anon_url('https://github.com/TeeVee/TeeVee/releases/tag/%s' % sc_version)}">
                                     ${sc_version}
                                 </a>
                             </div>
@@ -206,8 +206,8 @@
                     <i class="icon16-config-wiki"></i>&nbsp;&nbsp;${_('Wiki')}:
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                    <a href="${anon_url('https://github.com/SickChill/SickChill/wiki')}" rel="noreferrer" target="_blank">
-                        https://github.com/SickChill/SickChill/wiki
+                    <a href="${anon_url('https://github.com/TeeVee/TeeVee/wiki')}" rel="noreferrer" target="_blank">
+                        https://github.com/TeeVee/TeeVee/wiki
                     </a>
                 </div>
             </div>

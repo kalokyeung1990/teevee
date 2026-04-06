@@ -63,7 +63,7 @@
                             </div>
                             <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12 component-desc">
                                 <input type="checkbox" name="launch_browser" id="launch_browser" ${checked(settings.LAUNCH_BROWSER)}/>
-                                <label for="launch_browser">${_('open the SickChill home page on startup')}</label>
+                                <label for="launch_browser">${_('open the TeeVee home page on startup')}</label>
                             </div>
                         </div>
 
@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="default_page">${_('when launching SickChill interface')}</label>
+                                        <label for="default_page">${_('when launching TeeVee interface')}</label>
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +122,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label><b>${_('note')}:</b>&nbsp;${_('minutes are randomized each time SickChill is started')}</label>
+                                        <label><b>${_('note')}:</b>&nbsp;${_('minutes are randomized each time TeeVee is started')}</label>
                                     </div>
                                 </div>
                             </div>
@@ -341,7 +341,7 @@
                             </div>
                             <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12 component-desc">
                                 <input type="checkbox" name="notify_on_update" id="notify_on_update" ${checked(settings.NOTIFY_ON_UPDATE)}/>
-                                <label for="notify_on_update">${_('send a message to all enabled notifiers when SickChill has been updated')}</label>
+                                <label for="notify_on_update">${_('send a message to all enabled notifiers when TeeVee has been updated')}</label>
                             </div>
                         </div>
 
@@ -420,7 +420,7 @@
                             <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12 component-desc">
                                 <input type="checkbox" class="enabler" name="sickchill_background" id="sickchill_background"
                                     ${checked(settings.SICKCHILL_BACKGROUND)} />
-                                <label for="sickchill_background">${_('use a custom image as background for SickChill')}</label>
+                                <label for="sickchill_background">${_('use a custom image as background for TeeVee')}</label>
                             </div>
                         </div>
                         <div id="content_sickchill_background" ${hidden(settings.SICKCHILL_BACKGROUND)}>
@@ -480,7 +480,7 @@
                             <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12 component-desc">
                                 <input type="checkbox" class="enabler" name="custom_css" id="custom_css"
                                     ${checked(settings.CUSTOM_CSS)} />
-                                <label for="custom_css">${_('use a custom .css file to style SickChill (for advanced users)')}</label>
+                                <label for="custom_css">${_('use a custom .css file to style TeeVee (for advanced users)')}</label>
                             </div>
                         </div>
                         <div id="content_custom_css" ${hidden(settings.CUSTOM_CSS)}>
@@ -680,7 +680,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                     <div class="component-group-desc">
                         <h3>${_('Web Interface')}</h3>
-                        <p>${_('it is recommended that you enable a username and password to secure SickChill from being tampered with remotely.')}</p>
+                        <p>${_('it is recommended that you enable a username and password to secure TeeVee from being tampered with remotely.')}</p>
                         <p><b>${_('these options require a manual restart to take effect.')}</b></p>
                     </div>
                 </div>
@@ -700,7 +700,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="api_key">${_('used to give 3rd party programs limited access to SickChill')}</label>
+                                        <label for="api_key">${_('used to give 3rd party programs limited access to TeeVee')}</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -771,7 +771,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="web_port">${_('web port to browse and access SickChill (default:3333)')}</label>
+                                        <label for="web_port">${_('web port to browse and access TeeVee (default:3333)')}</label>
                                     </div>
                                 </div>
                             </div>

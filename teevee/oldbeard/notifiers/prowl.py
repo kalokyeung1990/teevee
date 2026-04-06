@@ -13,7 +13,7 @@ from teevee.oldbeard import common, db
 
 class Notifier(object):
     def test_notify(self, prowl_api, prowl_priority):
-        return self._send_prowl(prowl_api, prowl_priority, event="Test", message="Testing Prowl settings from SickChill", force=True)
+        return self._send_prowl(prowl_api, prowl_priority, event="Test", message="Testing Prowl settings from TeeVee", force=True)
 
     def notify_snatch(self, ep_name):
         if settings.PROWL_NOTIFY_ONSNATCH:

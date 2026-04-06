@@ -9,7 +9,7 @@ from teevee.oldbeard import common
 
 class Notifier(object):
     SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/"
-    SLACK_ICON_URL = "https://github.com/SickChill/SickChill/raw/master/sickchill/gui/slick/images/sickchill-sc.png"
+    SLACK_ICON_URL = "https://github.com/TeeVee/TeeVee/raw/master/sickchill/gui/slick/images/sickchill-sc.png"
 
     def notify_snatch(self, ep_name):
         if settings.SLACK_NOTIFY_SNATCH:
@@ -36,7 +36,7 @@ class Notifier(object):
             self._notify_slack(title + " - " + update_text.format(ipaddress))
 
     def test_notify(self):
-        return self._notify_slack("This is a test notification from SickChill", force=True)
+        return self._notify_slack("This is a test notification from TeeVee", force=True)
 
     def _send_slack(self, message=None):
         slack_webhook = self.SLACK_WEBHOOK_URL + settings.SLACK_WEBHOOK.replace(self.SLACK_WEBHOOK_URL, "")
@@ -49,7 +49,7 @@ class Notifier(object):
         try:
             r = requests.post(
                 slack_webhook,
-                data=json.dumps(dict(text=message, username="SickChillBot", icon_emoji=slack_icon_emoji, icon_url=self.SLACK_ICON_URL)),
+                data=json.dumps(dict(text=message, username="TeeVeeBot", icon_emoji=slack_icon_emoji, icon_url=self.SLACK_ICON_URL)),
                 headers=headers,
             )
             r.raise_for_status()

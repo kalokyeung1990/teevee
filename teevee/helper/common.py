@@ -13,7 +13,7 @@ from teevee import settings
 from teevee.init_helpers import get_current_version
 
 INSTANCE_ID = str(uuid.uuid1())
-USER_AGENT = "SickChill/{version} ({os} {architecture} {os_version}; {instance})".format(
+USER_AGENT = "TeeVee/{version} ({os} {architecture} {os_version}; {instance})".format(
     version=get_current_version(), os=platform.system(), architecture=platform.machine(), os_version=platform.release(), instance=INSTANCE_ID
 )
 

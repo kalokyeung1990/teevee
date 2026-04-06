@@ -14,7 +14,7 @@ class Notifier(object):
 
     def test_notify(self, pushbullet_api):
         logger.debug("Sending a test Pushbullet notification.")
-        return self._sendPushbullet(pushbullet_api, event="Test", message="Testing Pushbullet settings from SickChill", force=True)
+        return self._sendPushbullet(pushbullet_api, event="Test", message="Testing Pushbullet settings from TeeVee", force=True)
 
     def get_devices(self, pushbullet_api):
         logger.debug("Testing Pushbullet authentication and retrieving the device list.")

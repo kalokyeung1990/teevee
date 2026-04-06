@@ -34,7 +34,7 @@ def send_nzb(result: "SearchResult", proper=False) -> bool:
 
     proxy = get_proxy(settings.NZBGET_USE_HTTPS, settings.NZBGET_HOST, settings.NZBGET_USERNAME, settings.NZBGET_PASSWORD, settings.SSL_VERIFY)
     try:
-        if proxy.writelog("INFO", _("SickChill connected to drop off {name} any moment now.").format(name=f"{result.name}.nzb")):
+        if proxy.writelog("INFO", _("TeeVee connected to drop off {name} any moment now.").format(name=f"{result.name}.nzb")):
             logger.debug("Successfully connected to NZBget")
         else:
             logger.warning("Successfully connected to NZBget, but unable to send a message")
@@ -71,7 +71,7 @@ def send_nzb(result: "SearchResult", proper=False) -> bool:
     # if it aired recently make it high priority and generate DupeKey/Score
     for curEp in result.episodes:
         if not dupe_key:
-            dupe_key = f"SickChill-{curEp.show.indexerid}"
+            dupe_key = f"TeeVee-{curEp.show.indexerid}"
         dupe_key += f"-{curEp.season:02d}{curEp.episode:02d}"
 
     dupe_score = result.quality or 0
@@ -166,7 +166,7 @@ def test_client_connection(https: bool, host: str, username: str, password: str,
     proxy = get_proxy(https, host, username, password, verify)
 
     try:
-        if proxy.writelog("INFO", "SickChill connection test succeeded."):
+        if proxy.writelog("INFO", "TeeVee connection test succeeded."):
             logger.debug("NZBget connections succeeded")
         else:
             logger.warning("NZBget connections succeeded, but unable to send a message")

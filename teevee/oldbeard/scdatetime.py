@@ -150,7 +150,7 @@ class scdatetime(datetime.datetime):
 
         return strt
 
-    # display Date in SickChill Format
+    # display Date in TeeVee Format
     @static_or_instance
     def scfdate(self, dt=None, d_preset=None):
         """
@@ -190,7 +190,7 @@ class scdatetime(datetime.datetime):
 
         return strd
 
-    # display Datetime in SickChill Format
+    # display Datetime in TeeVee Format
     @static_or_instance
     def scfdatetime(self, dt=None, show_seconds=False, d_preset=None, t_preset=None):
         """

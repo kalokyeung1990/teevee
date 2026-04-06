@@ -91,7 +91,7 @@ class TraktChecker(object):
 
     def _sync_sickchill_to_trakt(self):
         if settings.TRAKT_SYNC and settings.USE_TRAKT:
-            logger.debug("Sync SickChill with Trakt Collection")
+            logger.debug("Sync TeeVee with Trakt Collection")
 
             if self._get_shows_collection():
                 self._add_episodes_to_trakt_collection()
@@ -188,7 +188,7 @@ class TraktChecker(object):
 
     def _sync_watchlists(self):
         if settings.USE_TRAKT and settings.TRAKT_SYNC_WATCHLIST:
-            logger.debug("Sync SickChill with Trakt Watchlist")
+            logger.debug("Sync TeeVee with Trakt Watchlist")
 
             self._remove_watched_shows_from_sickchill()
 
@@ -311,7 +311,7 @@ class TraktChecker(object):
 
     def _remove_watched_shows_from_sickchill(self):
         if settings.USE_TRAKT and settings.TRAKT_SYNC_WATCHLIST and settings.TRAKT_REMOVE_SHOW_FROM_SICKCHILL:
-            logger.debug("SHOW_SICKCHILL::REMOVE::START - Look for Shows to remove from SickChill")
+            logger.debug("SHOW_SICKCHILL::REMOVE::START - Look for Shows to remove from TeeVee")
 
             for show in settings.show_list or []:
                 if settings.stopping or settings.restarting:
@@ -327,12 +327,12 @@ class TraktChecker(object):
                     try:
                         progress = self.trakt_api.traktRequest("shows/" + show.imdb_id + "/progress/watched") or {}
                     except traktException as error:
-                        logger.warning(f"Could not connect to Trakt service. Aborting removing show {show.name} from SickChill. Error: {error}")
+                        logger.warning(f"Could not connect to Trakt service. Aborting removing show {show.name} from TeeVee. Error: {error}")
                         continue
 
                     if progress and progress.get("aired", True) == progress.get("completed", False):
                         Show.delete(show, remove_files=True)
-                        logger.debug("Show: {0} has been removed from SickChill".format(show.name))
+                        logger.debug("Show: {0} has been removed from TeeVee".format(show.name))
 
             logger.debug("SHOW_SICKCHILL::REMOVE::FINISH - Trakt Show Watchlist")
 

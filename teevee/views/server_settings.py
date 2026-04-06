@@ -18,7 +18,7 @@ from teevee.views.api import ApiHandler, KeyHandler
 from .routes import Route
 
 
-class SickChillStaticFileHandler(StaticFileHandler):
+class TeeVeeStaticFileHandler(StaticFileHandler):
     @classmethod
     def make_static_url(cls, settings: Dict[str, Any], path: str, include_version: bool = True) -> str:
         url = settings.get("static_url_prefix", "/static/") + path
@@ -114,7 +114,7 @@ class SCWebServer(threading.Thread):
             login_url=f'{self.options["web_root"]}/login/',
             static_path=self.options["data_root"],
             static_url_prefix=f'{self.options["web_root"]}/',
-            static_handler_class=SickChillStaticFileHandler,
+            static_handler_class=TeeVeeStaticFileHandler,
         )
 
         # Static File Handlers
@@ -123,27 +123,27 @@ class SCWebServer(threading.Thread):
             [
                 url(
                     rf'{self.options["web_root"]}/(favicon\.ico)',
-                    SickChillStaticFileHandler,
+                    TeeVeeStaticFileHandler,
                     {"path": os.path.join(self.options["data_root"], "images/ico")},
                     name="favicon",
                 ),
                 url(
                     rf'{self.options["web_root"]}/images/(.*)',
-                    SickChillStaticFileHandler,
+                    TeeVeeStaticFileHandler,
                     {"path": os.path.join(self.options["data_root"], "images")},
                     name="images",
                 ),
                 url(
                     rf'{self.options["web_root"]}/cache/images/(.*)',
-                    SickChillStaticFileHandler,
+                    TeeVeeStaticFileHandler,
                     {"path": os.path.join(settings.CACHE_DIR, "images")},
                     name="image_cache",
                 ),
-                url(rf'{self.options["web_root"]}/css/(.*)', SickChillStaticFileHandler, {"path": os.path.join(self.options["data_root"], "css")}, name="css"),
-                url(rf'{self.options["web_root"]}/js/(.*)', SickChillStaticFileHandler, {"path": os.path.join(self.options["data_root"], "js")}, name="js"),
+                url(rf'{self.options["web_root"]}/css/(.*)', TeeVeeStaticFileHandler, {"path": os.path.join(self.options["data_root"], "css")}, name="css"),
+                url(rf'{self.options["web_root"]}/js/(.*)', TeeVeeStaticFileHandler, {"path": os.path.join(self.options["data_root"], "js")}, name="js"),
                 url(
                     rf'{self.options["web_root"]}/fonts/(.*)',
-                    SickChillStaticFileHandler,
+                    TeeVeeStaticFileHandler,
                     {"path": os.path.join(self.options["data_root"], "fonts")},
                     name="fonts",
                 ),
@@ -180,7 +180,7 @@ class SCWebServer(threading.Thread):
             protocol = "http"
             ssl_options = None
 
-        logger.info(f"Starting SickChill on {protocol}://{self.options['host']}:{self.options['port']}/")
+        logger.info(f"Starting TeeVee on {protocol}://{self.options['host']}:{self.options['port']}/")
 
         try:
             self.server = self.app.listen(

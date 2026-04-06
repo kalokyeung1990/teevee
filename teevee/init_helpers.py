@@ -51,7 +51,7 @@ def maybe_daemonize():
 
     if pid_file:
         if pid_file.is_file():
-            # If the pid file already exists, SickChill may still be running, so exit
+            # If the pid file already exists, TeeVee may still be running, so exit
             raise SystemExit(f"PID file: {pid_file} already exists. Exiting.")
         pid_dir = pid_file.parent
         if not os.access(pid_dir, os.F_OK):
@@ -69,7 +69,7 @@ def maybe_daemonize():
 
     os.setsid()  # @UndefinedVariable - only available in UNIX
 
-    # https://github.com/SickChill/SickChill/issues/2969
+    # https://github.com/TeeVee/TeeVee/issues/2969
     # http://www.microhowto.info/howto/cause_a_process_to_become_a_daemon_in_c.html#idp23920
     # https://www.safaribooksonline.com/library/view/python-cookbook/0596001673/ch06s08.html
     # Previous code simply set the umask to whatever it was because it was ANDing instead of OR-ing

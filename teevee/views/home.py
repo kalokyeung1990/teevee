@@ -763,7 +763,7 @@ class Home(WebRoot):
             return self.redirect("/" + settings.DEFAULT_PAGE + "/")
 
         title = "Shutting down"
-        message = "SickChill is shutting down..."
+        message = "TeeVee is shutting down..."
 
         return self._genericMessage(title, message)
 
@@ -776,7 +776,7 @@ class Home(WebRoot):
 
         return t.render(
             title=_("Home"),
-            header=_("Restarting SickChill"),
+            header=_("Restarting TeeVee"),
             topmenu="system",
             controller="home",
             action="restart",
@@ -805,7 +805,7 @@ class Home(WebRoot):
                 t = PageTemplate(rh=self, filename="restart.mako")
                 return t.render(
                     title=_("Home"),
-                    header=_("Restarting SickChill"),
+                    header=_("Restarting TeeVee"),
                     topmenu="home",
                     controller="home",
                     action="restart",
@@ -1312,7 +1312,7 @@ class Home(WebRoot):
                     except NoNFOException:
                         errors.append(
                             f"The folder at <tt>{location}</tt> doesn't contain a tvshow.nfo - "
-                            + "copy your files to that folder before you change the directory in SickChill."
+                            + "copy your files to that folder before you change the directory in TeeVee."
                         )
 
             # save it to the DB

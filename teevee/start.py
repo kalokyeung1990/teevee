@@ -495,7 +495,7 @@ def initialize(console_logging: bool = True, debug: bool = False, dbdebug: bool 
         settings.PROWL_NOTIFY_ONSUBTITLEDOWNLOAD = check_setting_bool(settings.CFG, "Prowl", "prowl_notify_onsubtitledownload")
         settings.PROWL_API = check_setting_str(settings.CFG, "Prowl", "prowl_api", censor_log=True)
         settings.PROWL_PRIORITY = check_setting_str(settings.CFG, "Prowl", "prowl_priority", "0")
-        settings.PROWL_MESSAGE_TITLE = check_setting_str(settings.CFG, "Prowl", "prowl_message_title", "SickChill")
+        settings.PROWL_MESSAGE_TITLE = check_setting_str(settings.CFG, "Prowl", "prowl_message_title", "TeeVee")
 
         settings.USE_TWITTER = check_setting_bool(settings.CFG, "Twitter", "use_twitter")
         settings.TWITTER_NOTIFY_ONSNATCH = check_setting_bool(settings.CFG, "Twitter", "twitter_notify_onsnatch")
