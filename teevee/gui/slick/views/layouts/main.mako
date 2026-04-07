@@ -142,8 +142,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="${static_url('home/', include_version=False)}" title="TeeVee"><img alt="TeeVee" src="${static_url('images/logo.svg')}"
-                                                                                 style="height: 28px; width: auto;" class="pull-left" /></a>
+                    <a class="navbar-brand" href="${static_url('home/', include_version=False)}" title="TeeVee" style="display: flex; align-items: center; height: 50px; padding: 0 15px;"><img alt="TeeVee" src="${static_url('images/logo.svg')}"
+                                                                                 style="height: 22px; width: auto;" /></a>
                 </div>
                 % if current_user:
                     <div class="collapse navbar-collapse" id="collapsible-navbar">
