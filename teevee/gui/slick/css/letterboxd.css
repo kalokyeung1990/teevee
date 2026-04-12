@@ -820,18 +820,18 @@ thead.tablesorter-stickyHeader {
     color: #FFFFFF !important;
 }
 
-/* Display Show Table — override base black text */
+/* Display Show Table — override base black text and transparency */
 .displayShowTable {
     color: #99AABB !important;
 }
 
 .displayShowTable.display_show {
-    opacity: 1;
-    background-color: rgba(20, 24, 28, 0.85);
+    opacity: 1 !important;
+    background-color: #14181C !important;
 }
 
 .displayShowTable th.row-seasonheader {
-    background-color: transparent !important;
+    background-color: #14181C !important;
     color: #FFFFFF !important;
 }
 
@@ -843,29 +843,47 @@ thead.tablesorter-stickyHeader {
     color: #40BCF4 !important;
 }
 
-/* Episode status row backgrounds — dark variants */
+/* Episode status row backgrounds — dark variants with high specificity */
+.displayShowTable tr.unaired,
+table tr.unaired,
+tr.unaired,
 .unaired {
-    background-color: #2A2620 !important;
+    background-color: #1E2228 !important;
 }
 
+.displayShowTable tr.skipped,
+table tr.skipped,
+tr.skipped,
 .skipped {
-    background-color: #1D2A33 !important;
+    background-color: #1A2530 !important;
 }
 
+.displayShowTable tr.good,
+table tr.good,
+tr.good,
 .good {
-    background-color: #1A2E1E !important;
+    background-color: #1A2820 !important;
 }
 
+.displayShowTable tr.qual,
+table tr.qual,
+tr.qual,
 .qual {
-    background-color: #2E2510 !important;
+    background-color: #28221A !important;
 }
 
+.displayShowTable tr.wanted,
+table tr.wanted,
+tr.wanted,
 .wanted {
-    background-color: #2E1A1A !important;
+    background-color: #281A1A !important;
 }
 
+.displayShowTable tr.snatched,
+table tr.snatched,
+tr.snatched,
 .snatched {
-    background-color: #2A1A2A !important;
+    background-color: #251A28 !important;
 }
 
 /* Episode status badges */
