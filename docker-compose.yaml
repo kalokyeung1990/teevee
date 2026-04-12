@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  teevee:
+    image: teevee:latest
+    container_name: teevee
+    restart: unless-stopped
+    ports:
+      - 3333:3333
+    volumes:
+      - /docker/teevee/data:/data
+      - /docker/teevee/downloads:/downloads
+      - /docker/teevee/tv:/tv
+      - /docker/teevee/cache:/app/teevee/teevee/gui/slick/cache
+      - /etc/localtime:/etc/localtime:ro

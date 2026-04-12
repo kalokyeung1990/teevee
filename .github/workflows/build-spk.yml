@@ -1,0 +1,158 @@
+name: Build SPK
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    steps:
+      - name: Checkout teevee
+        uses: actions/checkout@v4
+        with:
+          path: teevee
+
+      - name: Checkout spksrc
+        uses: actions/checkout@v4
+        with:
+          repository: kalokyeung1990/spksrc
+          token: ${{ secrets.PAT }}
+          path: spksrc
+
+      - name: Rename spk/sickchill to spk/teevee
+        run: |
+          if [ -d spksrc/spk/sickchill ] && [ ! -d spksrc/spk/teevee ]; then
+            mv spksrc/spk/sickchill spksrc/spk/teevee
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build wheel
+        run: |
+          pip install build
+          cd teevee
+          python -m build --wheel --sdist
+          echo "TEEVEE_VERSION=$(python -c "import tomllib; print(tomllib.load(open('pyproject.toml','rb'))['tool']['poetry']['version'])")" >> $GITHUB_ENV
+
+      - name: Copy wheel and sdist to spksrc
+        run: |
+          mkdir -p spksrc/distrib/pip
+          cp teevee/dist/teevee-*.tar.gz spksrc/distrib/pip/
+          cp teevee/dist/teevee-*.whl spksrc/distrib/pip/
+
+      - name: Cache spksrc toolchain
+        uses: actions/cache@v4
+        with:
+          path: |
+            spksrc/toolchain
+            spksrc/cross
+          key: spksrc-toolchain-geminilake-7.2-${{ hashFiles('spksrc/spk/teevee/Makefile') }}
+          restore-keys: |
+            spksrc-toolchain-geminilake-7.2-
+
+      - name: Cache spksrc work directory (deps only)
+        uses: actions/cache@v4
+        with:
+          path: |
+            spksrc/spk/teevee/work-geminilake-7.2/install
+            spksrc/spk/teevee/work-geminilake-7.2/wheelhouse
+            spksrc/spk/teevee/work-geminilake-7.2/crossenv-*
+            spksrc/spk/teevee/work-geminilake-7.2/pip
+          key: spksrc-deps-geminilake-7.2-${{ hashFiles('spksrc/spk/teevee/src/requirements-*.txt') }}
+          restore-keys: |
+            spksrc-deps-geminilake-7.2-
+
+      - name: Build SPK
+        run: |
+          cd spksrc
+          docker run --rm --platform=linux/amd64 \
+            -v $(pwd):/spksrc \
+            -w /spksrc \
+            -e TAR_CMD="fakeroot tar" \
+            ghcr.io/synocommunity/spksrc \
+            /bin/bash -c "cd /spksrc/spk/teevee && make arch-geminilake-7.2"
+
+      - name: Inject teevee wheel into SPK
+        run: |
+          cd spksrc
+          # Copy wheel into wheelhouse in case spksrc didn't include it
+          cp ../teevee/dist/teevee-*.whl spk/teevee/work-geminilake-7.2/staging/share/wheelhouse/ 2>/dev/null || true
+          cp ../teevee/dist/teevee-*.whl spk/teevee/work-geminilake-7.2/install/var/packages/teevee/target/share/wheelhouse/ 2>/dev/null || true
+          # Rebuild SPK package
+          docker run --rm --platform=linux/amd64 \
+            -v $(pwd):/spksrc \
+            -w /spksrc \
+            -e TAR_CMD="fakeroot tar" \
+            ghcr.io/synocommunity/spksrc \
+            /bin/bash -c "cd /spksrc/spk/teevee && make arch-geminilake-7.2"
+
+      - name: Get SPK filename
+        run: |
+          SPK_FILE=$(ls spksrc/packages/*.spk | head -1)
+          SPK_NAME=$(basename $SPK_FILE)
+          SPK_SIZE=$(stat -c%s "$SPK_FILE")
+          SPK_MD5=$(md5sum "$SPK_FILE" | cut -d' ' -f1)
+          echo "SPK_FILE=$SPK_FILE" >> $GITHUB_ENV
+          echo "SPK_NAME=$SPK_NAME" >> $GITHUB_ENV
+          echo "SPK_SIZE=$SPK_SIZE" >> $GITHUB_ENV
+          echo "SPK_MD5=$SPK_MD5" >> $GITHUB_ENV
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: TeeVee ${{ github.ref_name }}
+          files: ${{ env.SPK_FILE }}
+          generate_release_notes: true
+
+      - name: Update package feed
+        run: |
+          cd teevee
+          git checkout gh-pages 2>/dev/null || git checkout --orphan gh-pages
+
+          TAG="${GITHUB_REF_NAME}"
+          DOWNLOAD_URL="https://github.com/kalokyeung1990/teevee/releases/download/${TAG}/${SPK_NAME}"
+
+          cat > index.json << FEED_EOF
+          [
+            {
+              "package": "teevee",
+              "version": "$(echo $TAG | sed 's/^v//')-1",
+              "dname": "TeeVee",
+              "desc": "Automatic Video Library Manager for TV Shows",
+              "price": 0,
+              "download_count": 0,
+              "recent_download_count": 0,
+              "link": "${DOWNLOAD_URL}",
+              "size": ${SPK_SIZE},
+              "md5": "${SPK_MD5}",
+              "thumbnail": [],
+              "snapshot": [],
+              "qinst": true,
+              "qstart": true,
+              "qupgrade": true,
+              "depsers": "python312",
+              "start": true,
+              "maintainer": "Kalok Yeung",
+              "changelog": "TeeVee ${TAG}",
+              "thirdparty": true
+            }
+          ]
+          FEED_EOF
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.json
+          git commit -m "Update package feed for ${TAG}" || true
+          git push origin gh-pages --force

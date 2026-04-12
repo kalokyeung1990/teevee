@@ -1,0 +1,24 @@
+[
+  {
+    "package": "teevee",
+    "version": "20260412-1",
+    "dname": "TeeVee",
+    "desc": "Automatic Video Library Manager for TV Shows",
+    "price": 0,
+    "download_count": 0,
+    "recent_download_count": 0,
+    "link": "https://github.com/kalokyeung1990/teevee/releases/download/v20260412/sickchill_geminilake-7.2_20260324-1.spk",
+    "size": 11847680,
+    "md5": "aab3552ac5665ad853c02f2c6a05fa28",
+    "thumbnail": [],
+    "snapshot": [],
+    "qinst": true,
+    "qstart": true,
+    "qupgrade": true,
+    "depsers": "python312",
+    "start": true,
+    "maintainer": "Kalok Yeung",
+    "changelog": "TeeVee v20260412",
+    "thirdparty": true
+  }
+]
