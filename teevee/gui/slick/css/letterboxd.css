@@ -813,6 +813,13 @@ thead.tablesorter-stickyHeader {
     background-color: #212830 !important;
 }
 
+.tablesorter tr:hover td,
+.tablesorter tr:hover td a,
+.displayShowTable tr:hover td,
+.displayShowTable tr:hover td a {
+    color: #FFFFFF !important;
+}
+
 .tablesorter tr.tablesorter-filter-row,
 .tablesorter tr.tablesorter-filter-row td {
     border-bottom: 1px solid #2C3440;
