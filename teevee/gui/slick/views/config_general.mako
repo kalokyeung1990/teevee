@@ -401,6 +401,7 @@
                                     <div class="col-md-12">
                                         <select id="theme_name" name="theme_name" class="form-control input-sm input250">
                                             <option value="dark" ${selected(settings.THEME_NAME == 'dark')}>${_('Dark')}</option>
+                                            <option value="letterboxd" ${selected(settings.THEME_NAME == 'letterboxd')}>${_('Letterboxd')}</option>
                                             <option value="light" ${selected(settings.THEME_NAME == 'light')}>${_('Light')}</option>
                                         </select>
                                     </div>

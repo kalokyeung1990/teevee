@@ -28,7 +28,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        <% themeColors = { "dark": "#0A0A0A", "light": "#333333" } %>
+        <% themeColors = { "dark": "#0A0A0A", "letterboxd": "#14181C", "light": "#333333" } %>
         <!-- Android -->
         <meta name="theme-color" content="${themeColors[settings.THEME_NAME]}">
 
@@ -51,7 +51,7 @@
         <meta name="msapplication-config" content="${static_url('images/ico/browserconfig.xml')}">
 
         <meta data-var="scRoot" data-content="${settings.WEB_ROOT}">
-        <meta data-var="themeSpinner" data-content="${('', '-dark')[settings.THEME_NAME == 'dark']}">
+        <meta data-var="themeSpinner" data-content="${('', '-dark')[settings.THEME_NAME in ('dark', 'letterboxd')]}">
         <meta data-var="anonURL" data-content="${settings.ANON_REDIRECT}">
 
         <meta data-var="settings.ANIME_SPLIT_HOME" data-content="${settings.ANIME_SPLIT_HOME}">
