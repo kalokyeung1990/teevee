@@ -230,7 +230,7 @@ hr {
    ========================================================================== */
 
 .footer {
-    color: #556677;
+    color: #788999;
 }
 
 .footerhighlight {
@@ -691,7 +691,7 @@ span.path {
 .btn.disabled,
 .btn[disabled] {
     background: #161C22;
-    color: #3C4C5C;
+    color: #667788;
 }
 
 .btn-success,
