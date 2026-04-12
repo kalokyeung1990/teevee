@@ -1,8 +1,89 @@
 /* =======================================================================
    TeeVee Letterboxd Theme
    Accent: #00E054 | Links: #40BCF4 | Backgrounds: #14181C → #1B2028
+   Fonts: Graphik (UI) + TiemposText (body/descriptions)
    Inspired by letterboxd.com's dark navy aesthetic
    ========================================================================== */
+
+/* =======================================================================
+   @font-face — Graphik
+   ========================================================================== */
+
+@font-face {
+    font-family: 'Graphik';
+    src: url('../css/fonts/graphik/Graphik-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Graphik';
+    src: url('../css/fonts/graphik/Graphik-RegularItalic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Graphik';
+    src: url('../css/fonts/graphik/Graphik-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Graphik';
+    src: url('../css/fonts/graphik/Graphik-Semibold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Graphik';
+    src: url('../css/fonts/graphik/Graphik-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* =======================================================================
+   @font-face — TiemposText
+   ========================================================================== */
+
+@font-face {
+    font-family: 'TiemposText';
+    src: url('../css/fonts/tiempos/TiemposText-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TiemposText';
+    src: url('../css/fonts/tiempos/TiemposText-RegularItalic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TiemposText';
+    src: url('../css/fonts/tiempos/TiemposText-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TiemposText';
+    src: url('../css/fonts/tiempos/TiemposText-Semibold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
 
 /* =======================================================================
    Base & Typography
@@ -11,7 +92,7 @@
 body {
     background-color: #14181C;
     color: #99AABB;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -28,7 +109,16 @@ a:hover {
 
 h1, h2, h3, h4, h5, h6 {
     color: #FFFFFF;
+    font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-weight: 600;
+}
+
+.component-group-desc p,
+#summary,
+.episode-description,
+.show-description,
+.calendarShow .text .episode-title {
+    font-family: 'TiemposText', Georgia, 'Times New Roman', serif;
 }
 
 pre {
