@@ -820,6 +820,29 @@ thead.tablesorter-stickyHeader {
     color: #FFFFFF !important;
 }
 
+/* Display Show Table — override base black text */
+.displayShowTable {
+    color: #CCDDEEFF !important;
+}
+
+.displayShowTable.display_show {
+    opacity: 1;
+    background-color: rgba(20, 24, 28, 0.85);
+}
+
+.displayShowTable th.row-seasonheader {
+    background-color: transparent !important;
+    color: #FFFFFF !important;
+}
+
+.displayShowTable td {
+    color: #99AABB !important;
+}
+
+.displayShowTable td a {
+    color: #40BCF4 !important;
+}
+
 .tablesorter tr.tablesorter-filter-row,
 .tablesorter tr.tablesorter-filter-row td {
     border-bottom: 1px solid #2C3440;
