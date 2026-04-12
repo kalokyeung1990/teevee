@@ -24,6 +24,12 @@ jobs:
           token: ${{ secrets.PAT }}
           path: spksrc
 
+      - name: Rename spk/sickchill to spk/teevee
+        run: |
+          if [ -d spksrc/spk/sickchill ] && [ ! -d spksrc/spk/teevee ]; then
+            mv spksrc/spk/sickchill spksrc/spk/teevee
+          fi
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
