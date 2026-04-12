@@ -96,7 +96,7 @@ jobs:
 
       - name: Get SPK filename
         run: |
-          SPK_FILE=$(ls spksrc/packages/teevee_*.spk | head -1)
+          SPK_FILE=$(ls spksrc/packages/*.spk | head -1)
           SPK_NAME=$(basename $SPK_FILE)
           SPK_SIZE=$(stat -c%s "$SPK_FILE")
           SPK_MD5=$(md5sum "$SPK_FILE" | cut -d' ' -f1)
