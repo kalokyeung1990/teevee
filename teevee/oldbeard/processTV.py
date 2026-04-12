@@ -341,8 +341,12 @@ def unrar(path, rar_files, force, result):
     unpacked_dirs = []
 
     if settings.UNPACK == settings.UNPACK_PROCESS_CONTENTS and rar_files:
-        result.output += log_helper(f"Packed Releases detected: {rar_files}", logger.DEBUG)
-        for archive in rar_files:
+        # Filter to only first-volume RAR files to avoid processing .r00/.r01 etc individually
+        first_volumes = [f for f in rar_files if f.endswith('.rar')]
+        if not first_volumes:
+            first_volumes = rar_files
+        result.output += log_helper(f"Packed Releases detected: {first_volumes}", logger.DEBUG)
+        for archive in first_volumes:
             failure = None
             rar_handle = None
             try:
@@ -361,7 +365,8 @@ def unrar(path, rar_files, force, result):
                     result.output += log_helper(f"Archive needs a password, skipping: {archive_path}")
                     continue
 
-                rar_handle.testrar()
+                # Skip testrar() — it reads the entire archive just to verify CRC,
+                # doubling I/O. If corrupt, extractall() will fail with RarCRCError.
 
                 # If there are no video files in the rar, don't extract it
                 rar_media_files = list(filter(is_media_file, rar_handle.namelist()))
