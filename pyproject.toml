@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "teevee"
-version = "2026.4.6"
+version = "2026.4.12"
 description = 'Automatic Video Library Manager for TV Shows'
 license = "GPL-3.0-or-later"
 
