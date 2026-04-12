@@ -822,7 +822,7 @@ thead.tablesorter-stickyHeader {
 
 /* Display Show Table — override base black text */
 .displayShowTable {
-    color: #CCDDEEFF !important;
+    color: #99AABB !important;
 }
 
 .displayShowTable.display_show {
@@ -841,6 +841,71 @@ thead.tablesorter-stickyHeader {
 
 .displayShowTable td a {
     color: #40BCF4 !important;
+}
+
+/* Episode status row backgrounds — dark variants */
+.unaired {
+    background-color: #2A2620 !important;
+}
+
+.skipped {
+    background-color: #1D2A33 !important;
+}
+
+.good {
+    background-color: #1A2E1E !important;
+}
+
+.qual {
+    background-color: #2E2510 !important;
+}
+
+.wanted {
+    background-color: #2E1A1A !important;
+}
+
+.snatched {
+    background-color: #2A1A2A !important;
+}
+
+/* Episode status badges */
+span.unaired {
+    border-color: #8B7D4A;
+    color: #C4B06A;
+}
+
+span.skipped {
+    border-color: #4A8BA8;
+    color: #6AACCC;
+}
+
+span.good {
+    border-color: #4A8B55;
+    color: #6ACC7A;
+}
+
+span.qual {
+    border-color: #B08A30;
+    color: #CCAA50;
+}
+
+span.wanted {
+    border-color: #B04040;
+    color: #E06060;
+}
+
+span.snatched {
+    border-color: #9A4A99;
+    color: #CC6ACC;
+}
+
+span.unaired b,
+span.skipped b,
+span.good b,
+span.qual b,
+span.wanted b,
+span.snatched b {
+    color: #FFFFFF;
 }
 
 .tablesorter tr.tablesorter-filter-row,
