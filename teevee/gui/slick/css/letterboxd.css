@@ -820,6 +820,12 @@ thead.tablesorter-stickyHeader {
     color: #FFFFFF !important;
 }
 
+/* Hide fanart background — doesn't work well with dark themes */
+.backstretch {
+    opacity: 0 !important;
+    display: none !important;
+}
+
 /* Display Show Table — override base black text and transparency */
 .displayShowTable {
     color: #99AABB !important;
